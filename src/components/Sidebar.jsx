@@ -19,6 +19,11 @@ export default function Sidebar() {
     }));
   };
 
+  const models = {
+    bmw: ['X5', 'X3', 'X1'],
+    nissan: ['Altima', 'Rogue', 'Leaf'],
+  };
+
   return (
     <div>
       <div onClick={() => handleMenuClick('make')}>Make</div>
@@ -46,10 +51,18 @@ export default function Sidebar() {
 
       <div onClick={() => handleMenuClick('model')}>Model</div>
       {activeMenu === 'model' && (
-        <div>
-          <div>Option 1</div>
-          <div>Option 2</div>
-        </div>
+        <select>
+          <optgroup label='BMW'>
+            <option value='X1'>X1</option>
+            <option value='X3'>X3</option>
+            <option value='X5'>X5</option>
+          </optgroup>
+          <optgroup label='Nissan'>
+            <option value='Altima'>Altima</option>
+            <option value='Rogue'>Rogue</option>
+            <option value='Leaf'>Leaf</option>
+          </optgroup>
+        </select>
       )}
     </div>
   );

@@ -1,14 +1,19 @@
 import { useState } from 'react';
 
 export default function Sidebar() {
-  const [activeMenu, setActiveMenu] = useState(null); //update the status of active menu
+  const [activeMenu, setActiveMenu] = useState(false); //update the status of active menu
   const [checked, setChecked] = useState({
     box1: false,
     box2: false,
   });
+  const [activeModel, setActiveModel] = useState(false);
 
   const handleMenuClick = (menu) => {
-    setActiveMenu(activeMenu === menu ? null : menu);
+    if (menu === 'make') {
+      setActiveMenu((prev) => !prev);
+    } else if (menu === 'model') {
+      setActiveModel((prev) => !prev);
+    }
   }; //event handle function to drop down the menu or not
 
   const handleCheckedChange = (e) => {
@@ -19,15 +24,10 @@ export default function Sidebar() {
     }));
   };
 
-  const models = {
-    bmw: ['X5', 'X3', 'X1'],
-    nissan: ['Altima', 'Rogue', 'Leaf'],
-  };
-
   return (
     <div>
       <div onClick={() => handleMenuClick('make')}>Make</div>
-      {activeMenu === 'make' && (
+      {activeMenu && (
         <div>
           <input
             type='checkbox'
@@ -50,7 +50,7 @@ export default function Sidebar() {
       {/*short-circuit evaluation; if both true, show the menu */}
 
       <div onClick={() => handleMenuClick('model')}>Model</div>
-      {activeMenu === 'model' && (
+      {activeModel && (
         <select>
           <optgroup label='BMW'>
             <option value='X1'>X1</option>

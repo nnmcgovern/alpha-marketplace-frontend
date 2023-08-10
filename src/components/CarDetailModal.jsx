@@ -1,6 +1,10 @@
 export default function CarDetailModal({ car, setShowCarDetailModal }) {
-  const handleClick = (e) => {
-    // add to cart
+  const handleClickCart = (e) => {
+    // add car to cart
+  };
+
+  const handleClickClose = (e) => {
+    setShowCarDetailModal(false);
   };
 
   return (
@@ -12,7 +16,8 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
       <p>{car.year}</p>
       <p>{car.color}</p>
       <p>${car.price}</p>
-      <button onClick={handleClick}>Add to Cart</button>
+      <button onClick={handleClickCart}>Add to Cart</button>
+      <button onClick={handleClickClose}>Close Modal</button>
     </div>
   );
 }

@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
-import CarDetailModal from "../components/CarDetailModal";
+import CarPreview from "../components/CarPreview";
+// import get all function from API
 
 export default function AllCars() {
-  const [showCarDetailModal, setShowCarDetailModal] = useState(false);
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  async function fetchCars() {
+    // const cars = ...
+    // setCars(cars)
+  }
 
   return (
     <div>
-      <div>AllCars</div>
+      <h1>All Cars</h1>
       <Sidebar />
+      {cars.map((car) => (
+        <CarPreview car={car} /> // create list of image + make, model for each car
+      ))}
     </div>
   );
 }

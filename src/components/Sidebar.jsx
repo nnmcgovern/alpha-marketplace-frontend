@@ -17,6 +17,14 @@ export default function Sidebar() {
         </div>
       )}
       {/*short-circuit evaluation; if both true, show the menu */}
+
+      <div onClick={() => handleMenuClick('model')}>Model</div>
+      {activeMenu === 'model' && (
+        <div>
+          <div>Option 1</div>
+          <div>Option 2</div>
+        </div>
+      )}
     </div>
   );
 }

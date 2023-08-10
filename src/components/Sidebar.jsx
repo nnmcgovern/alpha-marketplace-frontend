@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function Sidebar() {
   const [activeMenu, setActiveMenu] = useState(null); //update the status of active menu

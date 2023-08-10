@@ -1,18 +1,18 @@
-import { useState } from "react";
-import CreateAccountModal from "./CreateAccountModal";
+import { useState } from 'react';
+import CreateAccountModal from '../CreateAccountModal/CreateAccountModal.jsx';
 
 export default function LoginModal({
   setShowLoginModal,
   setShowCreateAccountModal,
 }) {
   const [user, setUser] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("LoginModal--user: ", user); // FOR TESTING
+    console.log('LoginModal--user: ', user); // FOR TESTING
     // login user
   };
 
@@ -39,22 +39,22 @@ export default function LoginModal({
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          placeholder="Username"
-          name="username"
+          type='text'
+          placeholder='Username'
+          name='username'
           value={user.username}
           onChange={handleChange}
         />
 
         <input
-          type="password"
-          placeholder="Password"
-          name="password"
+          type='password'
+          placeholder='Password'
+          name='password'
           value={user.password}
           onChange={handleChange}
         />
 
-        <button type="submit">Login</button>
+        <button type='submit'>Login</button>
       </form>
       <button onClick={handleClickCancel}>Cancel</button>
       <p>Not registered?</p>

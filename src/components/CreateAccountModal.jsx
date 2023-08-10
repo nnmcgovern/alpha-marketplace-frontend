@@ -12,6 +12,7 @@ export default function CreateAccountModal({ setShowCreateAccountModal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // if, else not working as intened currently
     if (!newUser.password === passwordConfirm) {
       setStatus("Passwords do not match");
     } else {

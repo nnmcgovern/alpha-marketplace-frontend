@@ -16,8 +16,8 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
       <p>{car.year}</p>
       <p>{car.color}</p>
       <p>${car.price}</p>
+      <button onClick={handleClickClose}>Close</button>
       <button onClick={handleClickCart}>Add to Cart</button>
-      <button onClick={handleClickClose}>Close Modal</button>
     </div>
   );
 }

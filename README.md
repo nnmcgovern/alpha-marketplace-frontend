@@ -29,6 +29,12 @@ Welcome to **Car Market Platform** - your go-to place for buying and selling car
 
 ## 🚀 Getting Started
 
+### Deployment
+
+- Backend database & server deployed using Mongo Atlas & Heroku
+- [See backend API here](https://alpha-marketplace-backend-18469668e160.herokuapp.com/api/cars)
+- [GitHub backend](https://github.com/sjkoshy/alpha-marketplace-backend)
+
 ### Prerequisites
 
 - Node.js
@@ -62,6 +68,53 @@ Welcome to **Car Market Platform** - your go-to place for buying and selling car
    npm start
    ```
 
+## Model
+
+- The API has 2 models Car.js & User.js
+
+```
+const CarSchema = new mongoose.Schema({
+  make: String,
+  model: String,
+  type: String,
+  year: Number,
+  color: String,
+  price: Number,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  image: String,
+})
+```
+
+```
+const UserSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password_digest: String,
+});
+```
+
+| Car Endpoints      | Description                                                               |
+| ------------------ | ------------------------------------------------------------------------- |
+| /cars              | See all cars available                                                    |
+| /cars/:id          | Search for one car by id                                                  |
+| /cars/make/:make   | Search for cars by make                                                   |
+| /cars/model/:model | Search for cars by model                                                  |
+| /cars/type/:type   | Search for cars by type                                                   |
+| /cars/year/:year   | Search for cars by year                                                   |
+| /cars/color/:color | Search for cars by color                                                  |
+| /cars/price/:price | Search for cars by price --> price includes a min & max                   |
+| /cars              | Create new car                                                            |
+| /cars/:id          | Update car listing --> this is restricted to the user who created the car |
+| /cars/:id          | Delete car listing --> this is restricted to the user who created the car |
+
+---
+
+| User Endpoints | Description                 |
+| -------------- | --------------------------- |
+| /signup        | Signup with new account     |
+| /login         | Login with existing account |
+| /verify        | Authenitcating the user     |
+
 ## 🤝 Contribution
 
 Contributions, issues, and feature requests are welcome!
@@ -76,6 +129,4 @@ For inquiries, suggestions, or anything else, please reach out to [someone's-ema
 
 <br />
 
-<p align="center">
-  Made by Natalie | Keith | Sherilyn | Rebekah
-</p>
+Made by [Natalie](https://www.linkedin.com/in/natalie-mcgovern/) | [Keith](https://www.linkedin.com/in/khlee93/) | [Sherilyn](https://www.linkedin.com/in/sherilynkoshy/) | [Rebekah](https://www.linkedin.com/in/rebekah-gomez/) 2023

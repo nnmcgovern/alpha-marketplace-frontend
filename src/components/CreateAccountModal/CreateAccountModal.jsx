@@ -20,7 +20,7 @@ export default function CreateAccountModal({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ISSUE: if, else not working as intened currently
+    // ISSUE: if, else not working as intended currently
     if (!form.password === form.passwordConfirm) {
       setStatus("Passwords do not match");
     } else {

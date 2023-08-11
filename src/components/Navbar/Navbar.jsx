@@ -17,7 +17,7 @@ export default function Navbar({ setShowLoginModal }) {
       </div>
       <ul className='navbar_menu'>
         <li>
-          <NavLink id='link' to='/home'>
+          <NavLink id='link' to='/'>
             Home
           </NavLink>
         </li>
@@ -36,6 +36,11 @@ export default function Navbar({ setShowLoginModal }) {
           <div id='link' onClick={handleClick}>
             Login
           </div>
+        </li>
+        <li>
+          <NavLink id='link' to='/myaccount'>
+            My Account
+          </NavLink>
         </li>
       </ul>
     </div>

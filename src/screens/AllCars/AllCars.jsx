@@ -12,8 +12,6 @@ export default function AllCars() {
   }, []);
 
   async function fetchCars() {
-    // const cars = ...
-    // setCars(cars)
     const cars = await getCars();
     setCars(cars);
   }

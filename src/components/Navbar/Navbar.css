@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(30, 48, 80);
+  gap: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcae1e;
+  padding: 0 12px;
+}
+
+.navbar_logo i {
+  font-size: 70px;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar_menu li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.navbar_menu li:hover {
+  background-color: #263343;
+  border-radius: 4px;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li:hover #link {
+  color: #ffffff;
+}
+
+.logo_font {
+  font-family: 'Borel', cursive;
+  font-size: 25px;
+}

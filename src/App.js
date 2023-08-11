@@ -14,12 +14,12 @@ function App() {
   const [showCreateAccountModal, setShowCreateAccountModal] = useState(false);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar setShowLoginModal={setShowLoginModal} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/all-cars" element={<AllCars />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/all-cars' element={<AllCars />} />
+        <Route path='/cart' element={<Cart />} />
         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
       {showLoginModal && (

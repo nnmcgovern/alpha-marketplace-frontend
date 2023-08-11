@@ -36,7 +36,7 @@ export default function Sidebar() {
             value={checked.box1}
             onChange={handleCheckedChange}
           />
-          <label for='BMW'>BMW</label>
+          <label htmlFor='BMW'>BMW</label>
           <input
             type='checkbox'
             id='Nissan'
@@ -44,7 +44,7 @@ export default function Sidebar() {
             value={checked.box2}
             onChange={handleCheckedChange}
           />
-          <label for='Nissan'>Nissan</label>
+          <label htmlFor='Nissan'>Nissan</label>
         </div>
       )}
       {/*short-circuit evaluation; if both true, show the menu */}

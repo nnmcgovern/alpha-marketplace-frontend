@@ -11,7 +11,7 @@ export default function Navbar({ setShowLoginModal }) {
       <div className='navbar_logo'>
         <NavLink id='link' to='/'>
           {/* <img src='' alt='alpha marketplace logo' /> */}
-          <i class='fa-solid fa-car'></i>
+          <i className='fa-solid fa-car'></i>
           <p className='logo_font'>Alpha Market</p>
         </NavLink>{' '}
       </div>

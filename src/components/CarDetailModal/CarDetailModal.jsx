@@ -5,6 +5,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
 
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
+    // console.log("closed");
   };
 
   return (

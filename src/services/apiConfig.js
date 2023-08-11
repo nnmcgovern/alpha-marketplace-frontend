@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const getToken = () => {
   return new Promise((resolve) => {
@@ -6,23 +6,8 @@ const getToken = () => {
   });
 };
 
-const apiURLs = {
-  production:
-    "https://alpha-marketplace-backend-18469668e160.herokuapp.com/api",
-  development: 'http://localhost:3000/api',
-
-};
-
-let baseURL = '';
-
-if (window.location.hostname === 'localhost') {
-  baseURL = apiURLs.development;
-} else {
-  baseURL = apiURLs.production;
-}
-
 const api = axios.create({
-  baseURL,
+  baseURL: "https://alpha-marketplace-backend-18469668e160.herokuapp.com/api",
 });
 
 api.interceptors.request.use(

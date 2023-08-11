@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./CarDetailModal.css";
 
 export default function CarDetailModal({ car, setShowCarDetailModal }) {
+  const [seller, setSeller] = useState("");
+
   const handleClickCart = (e) => {
     // add car to cart (array in localStorage)
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -28,6 +31,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
       <p>{car.year}</p>
       <p>{car.color}</p>
       <p>${car.price}</p>
+      <p className="car-detail-seller">Seller: {seller}</p>
       <button onClick={handleClickClose}>Close</button>
       <button onClick={handleClickCart}>Add to Cart</button>
     </div>

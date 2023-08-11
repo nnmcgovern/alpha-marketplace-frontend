@@ -12,9 +12,14 @@
     "d e"
     "g h"
     "i j"
-    "k l";
+    "k l"
+    "m m";
 }
 
 .car-detail-image {
   grid-area: a;
+}
+
+.car-detail-seller {
+  grid-area: m;
 }

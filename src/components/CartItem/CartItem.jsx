@@ -1,4 +1,4 @@
-export default function CartItem({ car }) {
+export default function CartItem({ car, setRerender }) {
   const handleClick = (e) => {
     // find and remove car from local storage array
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -11,6 +11,7 @@ export default function CartItem({ car }) {
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    setRerender((prev) => !prev);
   };
 
   return (

@@ -6,8 +6,8 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     cart ? cart.push(car) : (cart = [car]);
-
     localStorage.setItem("cart", JSON.stringify(cart));
+    setShowCarDetailModal(false);
   };
 
   const handleClickClose = (e) => {

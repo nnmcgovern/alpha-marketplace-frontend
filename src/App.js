@@ -1,13 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import Navbar from './components/Navbar/Navbar.jsx';
-import AllCars from './screens/AllCars/AllCars.jsx';
-import Cart from './screens/Cart/Cart.jsx';
-import Home from './screens/Home/Home.jsx';
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import AllCars from "./screens/AllCars/AllCars";
+import Cart from "./screens/Cart/Cart";
+import Home from "./screens/Home/Home";
 // import Login from "./screens/Login";
-import LoginModal from './components/LoginModal/LoginModal.jsx';
-import CreateAccountModal from './components/CreateAccountModal/CreateAccountModal.jsx';
-import './App.css';
+import LoginModal from "./components/LoginModal/LoginModal";
+import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
+import "./App.css";
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);

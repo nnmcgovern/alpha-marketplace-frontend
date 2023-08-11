@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../../services/users.js";
+import "./LoginModal.css";
 
 export default function LoginModal({
   setShowLoginModal,
@@ -7,10 +8,10 @@ export default function LoginModal({
   setUser,
 }) {
   const [form, setForm] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
     isError: false,
-    errorMsg: '',
+    errorMsg: "",
   });
 
   const handleSubmit = async (e) => {
@@ -24,10 +25,10 @@ export default function LoginModal({
     } catch (error) {
       console.error(error);
       setForm({
-        username: '',
-        password: '',
+        username: "",
+        password: "",
         isError: true,
-        errorMsg: 'Invalid Credentials',
+        errorMsg: "Invalid Credentials",
       });
     }
   };
@@ -51,26 +52,26 @@ export default function LoginModal({
   };
 
   return (
-    <div>
+    <div className="login-modal">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
-          type='text'
-          placeholder='Username'
-          name='username'
+          type="text"
+          placeholder="Username"
+          name="username"
           value={form.username}
           onChange={handleChange}
         />
 
         <input
-          type='password'
-          placeholder='Password'
-          name='password'
+          type="password"
+          placeholder="Password"
+          name="password"
           value={form.password}
           onChange={handleChange}
         />
 
-        <button type='submit'>Login</button>
+        <button type="submit">Login</button>
       </form>
       <button onClick={handleClickCancel}>Cancel</button>
       <p>Not registered?</p>

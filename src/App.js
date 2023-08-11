@@ -27,15 +27,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setShowLoginModal={setShowLoginModal} />
+      <Navbar
+        setShowLoginModal={setShowLoginModal}
+        user={user}
+        setUser={setUser}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="myaccount" element={<MyAccount />} />
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/myaccount" element={<MyAccount />} />
       </Routes>
-      {showLoginModal && (
+      {!user && showLoginModal && (
         <LoginModal
           setShowLoginModal={setShowLoginModal}
           setShowCreateAccountModal={setShowCreateAccountModal}
@@ -45,6 +48,8 @@ function App() {
       {showCreateAccountModal && (
         <CreateAccountModal
           setShowCreateAccountModal={setShowCreateAccountModal}
+          setShowLoginModal={setShowLoginModal}
+          setUser={setUser}
         />
       )}
     </div>

@@ -13,6 +13,7 @@ body {
   text-decoration: none;
   color: rgb(30, 48, 80);
   gap: 20px;
+  cursor: pointer;
 }
 
 .navbar {

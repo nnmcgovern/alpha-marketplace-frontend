@@ -1,13 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Navbar from "./components/Navbar/Navbar";
-import AllCars from "./screens/AllCars/AllCars";
-import Cart from "./screens/Cart/Cart";
-import Home from "./screens/Home/Home";
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import AllCars from './screens/AllCars/AllCars';
+import Cart from './screens/Cart/Cart';
+import Home from './screens/Home/Home.jsx';
 // import Login from "./screens/Login";
-import LoginModal from "./components/LoginModal/LoginModal";
-import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
-import "./App.css";
+import MyAccount from './screens/MyAccount/MyAccount';
+import LoginModal from './components/LoginModal/LoginModal';
+import CreateAccountModal from './components/CreateAccountModal/CreateAccountModal';
+import './App.css';
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/all-cars' element={<AllCars />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='myaccount' element={<MyAccount />} />
         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
       {showLoginModal && (

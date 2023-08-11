@@ -1,0 +1,7 @@
+.login-modal {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+}

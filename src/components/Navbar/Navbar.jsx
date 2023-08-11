@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
-export default function Navbar({ setShowLoginModal, user }) {
-  const handleClick = (e) => {
+export default function Navbar({ setShowLoginModal, user, setUser }) {
+  const handleClickLogin = (e) => {
     setShowLoginModal(true);
+  };
+
+  const handleClickLogout = (e) => {
+    localStorage.removeItem("token");
+    setUser(null);
   };
 
   useEffect(() => {}, [user]);
@@ -37,7 +42,7 @@ export default function Navbar({ setShowLoginModal, user }) {
         </li>
         {!user && (
           <li>
-            <div id="link" onClick={handleClick}>
+            <div id="link" onClick={handleClickLogin}>
               Login
             </div>
           </li>
@@ -47,6 +52,13 @@ export default function Navbar({ setShowLoginModal, user }) {
             <NavLink id="link" to="/myaccount">
               My Account
             </NavLink>
+          </li>
+        )}
+        {user && (
+          <li>
+            <div id="link" onClick={handleClickLogout}>
+              Logout
+            </div>
           </li>
         )}
       </ul>

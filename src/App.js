@@ -27,7 +27,11 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setShowLoginModal={setShowLoginModal} user={user} />
+      <Navbar
+        setShowLoginModal={setShowLoginModal}
+        user={user}
+        setUser={setUser}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all-cars" element={<AllCars />} />

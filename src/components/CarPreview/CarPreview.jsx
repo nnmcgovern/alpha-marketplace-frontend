@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CarDetailModal from "./CarDetailModal";
+import CarDetailModal from "../CarDetailModal/CarDetailModal";
 
 export default function CarPreview({ car }) {
   const [showCarDetailModal, setShowCarDetailModal] = useState(false);

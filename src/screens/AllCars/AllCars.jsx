@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Sidebar from "../components/Sidebar";
-import CarPreview from "../components/CarPreview";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import CarPreview from "../../components/CarPreview/CarPreview";
 // import get all function from API
 
 export default function AllCars() {

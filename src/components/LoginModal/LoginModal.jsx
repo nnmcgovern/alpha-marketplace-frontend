@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CreateAccountModal from "./CreateAccountModal";
 
 export default function LoginModal({
   setShowLoginModal,

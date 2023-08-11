@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewCarModal from "../components/NewCarModal";
+import NewCarModal from "../../components/NewCarModal/NewCarModal";
 
 export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);

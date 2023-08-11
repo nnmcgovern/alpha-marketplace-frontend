@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import AllCars from "./screens/AllCars";
-import Cart from "./screens/Cart";
-import Home from "./screens/Home";
+import Navbar from "./components/Navbar/Navbar";
+import AllCars from "./screens/AllCars/AllCars";
+import Cart from "./screens/Cart/Cart";
+import Home from "./screens/Home/Home";
 // import Login from "./screens/Login";
-import LoginModal from "./components/LoginModal";
-import CreateAccountModal from "./components/CreateAccountModal";
+import LoginModal from "./components/LoginModal/LoginModal";
+import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
 import "./App.css";
 
 function App() {

@@ -2,12 +2,16 @@ import "./CarDetailModal.css";
 
 export default function CarDetailModal({ car, setShowCarDetailModal }) {
   const handleClickCart = (e) => {
-    // add car to cart
+    // add car to cart (array in localStorage)
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    cart ? cart.push(car) : (cart = [car]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setShowCarDetailModal(false);
   };
 
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
-    // console.log("closed");
   };
 
   return (

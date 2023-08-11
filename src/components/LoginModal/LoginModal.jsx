@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../../services/users.js";
+import "./LoginModal.css";
 
 export default function LoginModal({
   setShowLoginModal,

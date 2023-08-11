@@ -10,7 +10,7 @@ export default function CarPreview({ car }) {
 
   return (
     <div onClick={handleClick}>
-      <img src={car.image} alt={`${car.make} ${car.model}`} />
+      <img src={car.image} width="300px" alt={`${car.make} ${car.model}`} />
       <p>{`${car.make} ${car.model}`}</p>
       {showCarDetailModal ? (
         <CarDetailModal

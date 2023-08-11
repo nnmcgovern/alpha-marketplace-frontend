@@ -1,25 +1,41 @@
 import { useState } from "react";
-import "./LoginModal.css";
+import { login } from "../../services/users.js";
 
 export default function LoginModal({
   setShowLoginModal,
   setShowCreateAccountModal,
+  setUser,
 }) {
-  const [user, setUser] = useState({
+  const [form, setForm] = useState({
     username: "",
     password: "",
+    isError: false,
+    errorMsg: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("LoginModal--user: ", user); // FOR TESTING
-    // login user
+    // console.log('LoginModal--user: ', user); // FOR TESTING
+    // // login user
+    try {
+      const user = await login(form);
+      setUser(user);
+      setShowLoginModal(false);
+    } catch (error) {
+      console.error(error);
+      setForm({
+        username: "",
+        password: "",
+        isError: true,
+        errorMsg: "Invalid Credentials",
+      });
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUser((prev) => ({
+    setForm((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -42,7 +58,7 @@ export default function LoginModal({
           type="text"
           placeholder="Username"
           name="username"
-          value={user.username}
+          value={form.username}
           onChange={handleChange}
         />
 
@@ -50,7 +66,7 @@ export default function LoginModal({
           type="password"
           placeholder="Password"
           name="password"
-          value={user.password}
+          value={form.password}
           onChange={handleChange}
         />
 

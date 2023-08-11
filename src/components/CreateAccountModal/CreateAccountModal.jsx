@@ -1,6 +1,10 @@
 import { useState } from "react";
+import "./CreateAccountModal.css";
 
-export default function CreateAccountModal({ setShowCreateAccountModal }) {
+export default function CreateAccountModal({
+  setShowCreateAccountModal,
+  setShowLoginModal,
+}) {
   const [newUser, setNewUser] = useState({
     email: "",
     username: "",
@@ -40,8 +44,13 @@ export default function CreateAccountModal({ setShowCreateAccountModal }) {
     setShowCreateAccountModal(false);
   };
 
+  const handleClickLogin = (e) => {
+    setShowCreateAccountModal(false);
+    setShowLoginModal(true);
+  };
+
   return (
-    <div>
+    <div className="create-account-modal">
       <h1>Create an Account</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -80,6 +89,8 @@ export default function CreateAccountModal({ setShowCreateAccountModal }) {
       </form>
       <p>{status}</p>
       <button onClick={handleClickCancel}>Cancel</button>
+      <p>Already have an account?</p>
+      <button onClick={handleClickLogin}>Login</button>
     </div>
   );
 }

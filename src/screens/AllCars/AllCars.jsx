@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CarPreview from "../../components/CarPreview/CarPreview";
-// import get all function from API
+import { getCars } from "../../services/cars";
+import "./AllCars.css";
 
 export default function AllCars() {
   const [cars, setCars] = useState([]);
@@ -13,15 +14,19 @@ export default function AllCars() {
   async function fetchCars() {
     // const cars = ...
     // setCars(cars)
+    const cars = await getCars();
+    setCars(cars);
   }
 
   return (
     <div>
       <h1>All Cars</h1>
       <Sidebar />
-      {cars.map((car) => (
-        <CarPreview car={car} /> // create list of image + make, model for each car
-      ))}
+      <div className="allcars-grid">
+        {cars.map((car) => (
+          <CarPreview car={car} key={car._id} /> // create list of image + make, model for each car
+        ))}
+      </div>
     </div>
   );
 }

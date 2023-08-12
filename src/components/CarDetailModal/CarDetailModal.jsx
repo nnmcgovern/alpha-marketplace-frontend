@@ -18,22 +18,28 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
   };
 
   return (
-    <div className="car-detail-modal">
-      <img
-        className="car-detail-image"
-        src={car.image}
-        width="300px"
-        alt={`${car.make} ${car.model}`}
-      />
-      <p>{car.make}</p>
-      <p>{car.model}</p>
-      <p>{car.type}</p>
-      <p>{car.year}</p>
-      <p>{car.color}</p>
-      <p>${car.price}</p>
-      <p className="car-detail-seller">Seller: {seller}</p>
-      <button onClick={handleClickClose}>Close</button>
-      <button onClick={handleClickCart}>Add to Cart</button>
+    <div className="car_detail_overlay">
+      <div className="car_detail_modal">
+        <img
+          className="car_detail_image"
+          src={car.image}
+          width="300px"
+          alt={`${car.make} ${car.model}`}
+        />
+        <p>Make: {car.make}</p>
+        <p>Model: {car.model}</p>
+        <p>Body Type: {car.type}</p>
+        <p>Year: {car.year}</p>
+        <p>Color: {car.color}</p>
+        <p className="car_detail_price">${car.price}</p>
+        <p className="car_detail_seller">Seller: {seller}</p>
+        <button className="car_detail_close" onClick={handleClickClose}>
+          Close
+        </button>
+        <button className="car_detail_cart" onClick={handleClickCart}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,25 +1,64 @@
-.car-detail-modal {
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.car_detail_overlay {
   z-index: 1;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.car_detail_modal {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 700px;
+  height: 400px;
+  margin-top: 200px;
+  margin-left: 200px;
+  padding: 50px;
   background-color: #FFFFFF;
 
   display: grid;
   grid-template-areas:
-    "a a"
-    "b c"
-    "d e"
-    "g h"
-    "i j"
-    "k l"
-    "m m";
+    /* "a b c"
+    "a d e"
+    "a g h"
+    "a i j"
+    "a k ."
+    "a m n"
+    "a o p"; */
+    "a b c"
+    "a d e"
+    "a f g"
+    "h i j";
 }
 
-.car-detail-image {
+.car_detail_image {
   grid-area: a;
 }
 
-.car-detail-seller {
+/* .car_detail_price {
   grid-area: m;
+}
+
+.car_detail_close {
+  grid-area: o;
+}
+
+.car_detail_cart {
+  grid-area: p;
+} */
+
+.all_cars_screen {
+  /* prevent scrolling */
+  border: solid red;
+  height: calc();
+  overflow: hidden;
 }

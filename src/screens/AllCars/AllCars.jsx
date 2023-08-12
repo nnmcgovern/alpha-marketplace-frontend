@@ -14,11 +14,10 @@ export default function AllCars() {
   async function fetchCars() {
     const cars = await getCars();
     setCars(cars);
-    console.log(cars);
   }
 
   return (
-    <div className="all-cars-screen">
+    <div>
       <Sidebar />
       <div className="all-cars-grid">
         {cars.map((car) => (

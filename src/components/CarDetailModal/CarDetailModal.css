@@ -1,6 +1,6 @@
 body.modal-open {
-  height: 100%;
-  overflow: hidden;
+  /* height: 100%;
+  overflow: hidden; */
 }
 
 .car_detail_overlay {
@@ -8,20 +8,22 @@ body.modal-open {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .car_detail_modal {
   z-index: 2;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 700px;
   height: 400px;
-  margin-top: 200px;
-  margin-left: 200px;
+  /* margin-top: -200px; */
+  /* margin-top: calc(attr(data-scroll - 200px));
+  margin-left: -350px; */
+  /* transform: (0, attr(scroll)px); */
   padding: 50px;
   background-color: #FFFFFF;
 
@@ -36,10 +38,3 @@ body.modal-open {
 }
 
 .car_detail_modal button {}
-
-.all_cars_screen {
-  /* prevent scrolling */
-  border: solid red;
-  height: calc();
-  overflow: hidden;
-}

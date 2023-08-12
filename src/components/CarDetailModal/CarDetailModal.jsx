@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getUser } from "../../services/users";
 import "./CarDetailModal.css";
 
 export default function CarDetailModal({ car, setShowCarDetailModal }) {
   const [seller, setSeller] = useState("");
+
+  useEffect(() => {
+    const getSeller = async () => {
+      const user = await getUser(car.user);
+      setSeller(user.username);
+    };
+    getSeller();
+
+    document.body.classList.add("modal-open");
+  }, []);
 
   const handleClickCart = (e) => {
     // add car to cart (array in localStorage)
@@ -15,6 +26,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
 
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   return (
@@ -26,13 +38,15 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           width="300px"
           alt={`${car.make} ${car.model}`}
         />
-        <p>Make: {car.make}</p>
-        <p>Model: {car.model}</p>
-        <p>Body Type: {car.type}</p>
-        <p>Year: {car.year}</p>
-        <p>Color: {car.color}</p>
-        <p className="car_detail_price">${car.price}</p>
-        <p className="car_detail_seller">Seller: {seller}</p>
+        <div className="car_detail_info_container">
+          <p>Make: {car.make}</p>
+          <p>Model: {car.model}</p>
+          <p>Body Type: {car.type}</p>
+          <p>Year: {car.year}</p>
+          <p>Color: {car.color}</p>
+          <p className="car_detail_price">${car.price}</p>
+          <p className="car_detail_seller">Seller: {seller}</p>
+        </div>
         <button className="car_detail_close" onClick={handleClickClose}>
           Close
         </button>

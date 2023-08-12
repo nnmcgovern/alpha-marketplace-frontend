@@ -1,4 +1,4 @@
-body {
+body.modal-open {
   height: 100%;
   overflow: hidden;
 }
@@ -8,7 +8,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -27,34 +27,15 @@ body {
 
   display: grid;
   grid-template-areas:
-    /* "a b c"
-    "a d e"
-    "a g h"
-    "a i j"
-    "a k ."
-    "a m n"
-    "a o p"; */
-    "a b c"
-    "a d e"
-    "a f g"
-    "h i j";
+    "a b"
+    "c d";
 }
 
 .car_detail_image {
   grid-area: a;
 }
 
-/* .car_detail_price {
-  grid-area: m;
-}
-
-.car_detail_close {
-  grid-area: o;
-}
-
-.car_detail_cart {
-  grid-area: p;
-} */
+.car_detail_modal button {}
 
 .all_cars_screen {
   /* prevent scrolling */

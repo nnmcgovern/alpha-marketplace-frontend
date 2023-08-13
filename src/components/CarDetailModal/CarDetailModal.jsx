@@ -23,6 +23,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     cart ? cart.push(car) : (cart = [car]);
     localStorage.setItem("cart", JSON.stringify(cart));
     setShowCarDetailModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   const handleClickClose = (e) => {
@@ -31,27 +32,27 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
   };
 
   return (
-    <div className="car_detail_overlay">
-      <div className="car_detail_modal">
+    <div className="car-detail-overlay">
+      <div className="car-detail-modal">
         <img
-          className="car_detail_image"
+          className="car-detail-image"
           src={car.image}
           width="300px"
           alt={`${car.make} ${car.model}`}
         />
-        <div className="car_detail_info_container">
+        <div className="car-detail-info-container">
           <p>Make: {car.make}</p>
           <p>Model: {car.model}</p>
           <p>Body Type: {car.type}</p>
           <p>Year: {car.year}</p>
           <p>Color: {car.color}</p>
-          <p className="car_detail_price">${car.price}</p>
-          <p className="car_detail_seller">Seller: {seller}</p>
+          <p className="car-detail-price">${car.price}</p>
+          <p className="car-detail-seller">Seller: {seller}</p>
         </div>
-        <button className="car_detail_close" onClick={handleClickClose}>
+        <button className="car-detail-close" onClick={handleClickClose}>
           Close
         </button>
-        <button className="car_detail_cart" onClick={handleClickCart}>
+        <button className="car-detail-cart" onClick={handleClickCart}>
           Add to Cart
         </button>
       </div>

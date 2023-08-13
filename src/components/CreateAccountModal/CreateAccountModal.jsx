@@ -64,7 +64,7 @@ export default function CreateAccountModal({
   };
 
   return (
-    <div className="create-account-overlay">
+    <div className="create-account-overlay" onClick={handleClickCancel}>
       <div className="create-account-modal">
         <h1>Create an Account</h1>
         <form onSubmit={handleSubmit}>

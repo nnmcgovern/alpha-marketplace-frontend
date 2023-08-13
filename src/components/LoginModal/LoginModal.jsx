@@ -60,7 +60,7 @@ export default function LoginModal({
   };
 
   return (
-    <div className="login-modal-overlay">
+    <div className="login-modal-overlay" onClick={handleClickCancel}>
       <div className="login-modal">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>

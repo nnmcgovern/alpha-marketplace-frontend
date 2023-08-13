@@ -55,6 +55,7 @@ export default function CreateAccountModal({
 
   const handleClickCancel = (e) => {
     setShowCreateAccountModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   const handleClickLogin = (e) => {
@@ -63,47 +64,49 @@ export default function CreateAccountModal({
   };
 
   return (
-    <div className="create-account-modal">
-      <h1>Create an Account</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-        />
+    <div className="create-account-overlay">
+      <div className="create-account-modal">
+        <h1>Create an Account</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+          />
 
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          name="passwordConfirm"
-          value={form.passwordConfirm}
-          onChange={handleChange}
-        />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="passwordConfirm"
+            value={form.passwordConfirm}
+            onChange={handleChange}
+          />
 
-        <button type="submit">Create Account</button>
-      </form>
-      <p>{status}</p>
-      <button onClick={handleClickCancel}>Cancel</button>
-      <p>Already have an account?</p>
-      <button onClick={handleClickLogin}>Login</button>
+          <button type="submit">Create Account</button>
+        </form>
+        <p>{status}</p>
+        <button onClick={handleClickCancel}>Cancel</button>
+        <p>Already have an account?</p>
+        <button onClick={handleClickLogin}>Login</button>
+      </div>
     </div>
   );
 }

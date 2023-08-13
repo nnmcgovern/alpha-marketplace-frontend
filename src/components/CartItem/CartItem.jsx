@@ -1,4 +1,18 @@
+import { useState, useEffect } from "react";
+import { getUser } from "../../services/users";
+import "./CartItem.css";
+
 export default function CartItem({ car, setRerender }) {
+  const [seller, setSeller] = useState("");
+
+  useEffect(() => {
+    const getSeller = async () => {
+      const user = await getUser(car.user);
+      setSeller(user.username);
+    };
+    getSeller();
+  }, []);
+
   const handleClick = (e) => {
     // find and remove car from local storage array
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -15,15 +29,20 @@ export default function CartItem({ car, setRerender }) {
   };
 
   return (
-    <div>
+    <div className="cart-items-container">
       <img src={car.image} width="300px" alt={`${car.make} ${car.model}`} />
-      <p>{car.make}</p>
-      <p>{car.model}</p>
-      <p>{car.type}</p>
-      <p>{car.year}</p>
-      <p>{car.color}</p>
-      <p>${car.price}</p>
-      <button onClick={handleClick}>Remove</button>
+      <div className="cart-item-info">
+        <p>Make: {car.make}</p>
+        <p>Model: {car.model}</p>
+        <p>Body Type: {car.type}</p>
+        <p>Year: {car.year}</p>
+        <p>Color: {car.color}</p>
+        <p>${car.price}</p>
+        <p>Sold by: {seller}</p>
+      </div>
+      <button className="cart-item-button" onClick={handleClick}>
+        Remove
+      </button>
     </div>
   );
 }

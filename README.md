@@ -1,6 +1,6 @@
-# 🚗 Car Market Platform
+# 🚗 Alpha Marketplace
 
-Welcome to **Car Market Platform** - your go-to place for buying and selling cars online. Built using the MERN stack, it brings together buyers and sellers across the globe.
+Welcome to **Alpha Marketplace** - your go-to platform for buying and selling cars online. Built using the MERN stack, it brings together buyers and sellers across the globe.
 
 <!-- <p align="center">
   <img src="" alt="Screenshot of Homepage" width="600px" />
@@ -32,8 +32,8 @@ Welcome to **Car Market Platform** - your go-to place for buying and selling car
 ### Deployment
 
 - Backend database & server deployed using Mongo Atlas & Heroku
-- [See backend API here](https://alpha-marketplace-backend-18469668e160.herokuapp.com/api/cars)
-- [GitHub backend](https://github.com/sjkoshy/alpha-marketplace-backend)
+- [API on Heroku](https://alpha-marketplace-backend-18469668e160.herokuapp.com/api/cars)
+- [GitHub Repo](https://github.com/sjkoshy/alpha-marketplace-backend)
 
 ### Prerequisites
 
@@ -113,11 +113,11 @@ const UserSchema = new mongoose.Schema({
 | -------------- | --------------------------- |
 | /signup        | Signup with new account     |
 | /login         | Login with existing account |
-| /verify        | Authenitcating the user     |
+| /verify        | Authenticate the user       |
 
 ## 🤝 Contribution
 
-Contributions, issues, and feature requests are welcome!
+Contributions, issues, and feature requests are welcome! Please submit a pull request with your suggestion.
 
 ## 📝 License
 
@@ -125,8 +125,8 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 ## 💌 Contact
 
-For inquiries, suggestions, or anything else, please reach out to [someone's-email@gmail.com](mailto:someone's-email@gmail.com).
+For inquiries, suggestions, or anything else, please reach out to any of us via LinkedIn 👇
 
 <br />
 
-Made by [Natalie](https://www.linkedin.com/in/natalie-mcgovern/) | [Keith](https://www.linkedin.com/in/khlee93/) | [Sherilyn](https://www.linkedin.com/in/sherilynkoshy/) | [Rebekah](https://www.linkedin.com/in/rebekah-gomez/) 2023
+Made by [Natalie McGovern](https://www.linkedin.com/in/natalie-mcgovern/) | [Keith Lee](https://www.linkedin.com/in/khlee93/) | [Sherilyn Koshy](https://www.linkedin.com/in/sherilynkoshy/) | [Rebekah Gomez](https://www.linkedin.com/in/rebekah-gomez/) | &copy; 2023

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { login } from "../../services/users.js";
 import "./LoginModal.css";
 
@@ -14,14 +14,18 @@ export default function LoginModal({
     errorMsg: "",
   });
 
+  useEffect(() => {
+    document.body.classList.add("modal-open"); // add css to disable body scrolling
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log('LoginModal--user: ', user); // FOR TESTING
-    // // login user
+
+    // login user
     try {
       const user = await login(form);
       setUser(user);
-      setShowLoginModal(false);
+      // setShowLoginModal(false);
     } catch (error) {
       console.error(error);
       setForm({
@@ -31,6 +35,9 @@ export default function LoginModal({
         errorMsg: "Invalid Credentials",
       });
     }
+
+    setShowLoginModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   const handleChange = (e) => {
@@ -44,6 +51,7 @@ export default function LoginModal({
 
   const handleClickCancel = (e) => {
     setShowLoginModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   const handleClickCreateAccount = (e) => {
@@ -52,30 +60,32 @@ export default function LoginModal({
   };
 
   return (
-    <div className="login-modal">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-        />
+    <div className="login-modal-overlay">
+      <div className="login-modal">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+          />
 
-        <button type="submit">Login</button>
-      </form>
-      <button onClick={handleClickCancel}>Cancel</button>
-      <p>Not registered?</p>
-      <button onClick={handleClickCreateAccount}>Create Account</button>
+          <button type="submit">Login</button>
+        </form>
+        <button onClick={handleClickCancel}>Cancel</button>
+        <p>Not registered?</p>
+        <button onClick={handleClickCreateAccount}>Create Account</button>
+      </div>
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function Checkout() {
       const carIds = cars.map((car) => car._id);
 
       try {
-        const res = await api.post(`/cars/checkout`, { carIds, ...userData});
+        const res = await api.post(`/checkout`, { carIds, ...userData});
 
         if (res.data.success) {
           alert("Thank you for your purchase!");

@@ -35,7 +35,6 @@ body.modal-open {
 }
 
 .car-detail-modal button {
-  align-self: center;
   background-color: #fcae1e;
   border: none;
   border-radius: 4px;

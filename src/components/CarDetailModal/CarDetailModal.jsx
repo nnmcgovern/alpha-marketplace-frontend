@@ -4,7 +4,6 @@ import "./CarDetailModal.css";
 
 export default function CarDetailModal({ car, setShowCarDetailModal }) {
   const [seller, setSeller] = useState("");
-  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     const getSeller = async () => {
@@ -20,8 +19,28 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     // add car to cart (array in localStorage)
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    cart ? cart.push(car) : (cart = [car]);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (cart) {
+      let inCart = false;
+
+      // check if car has already been added to the cart
+      cart.forEach((item) => {
+        if (item._id === car._id) {
+          inCart = true;
+          return;
+        }
+      });
+
+      if (inCart) {
+        alert("This item is already in your cart.");
+      } else {
+        cart.push(car);
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+    } else {
+      cart = [car];
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
     setShowCarDetailModal(false);
     document.body.classList.remove("modal-open");
   };
@@ -32,7 +51,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
   };
 
   return (
-    <div className="car-detail-overlay">
+    <div className="car-detail-overlay" onClick={handleClickClose}>
       <div className="car-detail-modal">
         <img
           className="car-detail-image"
@@ -47,7 +66,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           <p>Year: {car.year}</p>
           <p>Color: {car.color}</p>
           <p className="car-detail-price">${car.price}</p>
-          <p className="car-detail-seller">Seller: {seller}</p>
+          <p className="car-detail-seller">Sold by: {seller}</p>
         </div>
         <button className="car-detail-close" onClick={handleClickClose}>
           Cancel

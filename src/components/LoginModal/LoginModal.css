@@ -20,7 +20,61 @@ body.modal-open {
   left: 25%;
   width: 700px;
   height: 410px;
-  padding: 50px;
+  padding: 35px;
   background-color: #FFFFFF;
   border-radius: 4px;
+  color: #263343;
+}
+
+.login-modal h1 {
+  text-align: center;
+}
+
+.login-modal form {
+  display: grid;
+}
+
+.login-modal form input {
+  margin-bottom: 25px;
+  padding: 5px;
+}
+
+.login-modal-create-acc {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.login-modal-create-acc p {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.login-modal button {
+  background-color: #fcae1e;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  width: 130px;
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.login-modal-form-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.login-modal-create-acc button {
+  width: 150px;
+}
+
+.login-modal button:hover {
+  background-color: #263343;
+  color: #FFFFFF;
 }

@@ -50,7 +50,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           <p className="car-detail-seller">Seller: {seller}</p>
         </div>
         <button className="car-detail-close" onClick={handleClickClose}>
-          Close
+          Cancel
         </button>
         <button className="car-detail-cart" onClick={handleClickCart}>
           Add to Cart

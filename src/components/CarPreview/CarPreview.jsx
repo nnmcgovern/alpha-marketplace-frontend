@@ -5,7 +5,7 @@ export default function CarPreview({ car }) {
   const [showCarDetailModal, setShowCarDetailModal] = useState(false);
 
   const handleClick = (e) => {
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
     setShowCarDetailModal(true);
   };
 

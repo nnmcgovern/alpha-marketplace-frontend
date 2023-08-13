@@ -12,9 +12,6 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
       setSeller(user.username);
     };
     getSeller();
-    setScroll(window.scrollY);
-    console.log(scroll);
-    console.log(window.scrollY);
 
     document.body.classList.add("modal-open"); // add css to disable body scrolling
   }, []);
@@ -31,7 +28,6 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
     document.body.classList.remove("modal-open");
-    window.scroll(0, scroll);
   };
 
   return (

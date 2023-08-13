@@ -60,7 +60,7 @@ export default function LoginModal({
   };
 
   return (
-    <div className="login-modal-overlay">
+    <div className="login-modal-overlay" onClick={handleClickCancel}>
       <div className="login-modal">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
@@ -80,11 +80,15 @@ export default function LoginModal({
             onChange={handleChange}
           />
 
-          <button type="submit">Login</button>
+          <div className="login-modal-form-buttons">
+            <button onClick={handleClickCancel}>Cancel</button>
+            <button type="submit">Login</button>
+          </div>
         </form>
-        <button onClick={handleClickCancel}>Cancel</button>
-        <p>Not registered?</p>
-        <button onClick={handleClickCreateAccount}>Create Account</button>
+        <div className="login-modal-create-acc">
+          <p>Not registered?</p>
+          <button onClick={handleClickCreateAccount}>Create Account</button>
+        </div>
       </div>
     </div>
   );

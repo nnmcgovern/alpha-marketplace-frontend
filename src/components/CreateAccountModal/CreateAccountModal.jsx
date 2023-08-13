@@ -64,7 +64,7 @@ export default function CreateAccountModal({
   };
 
   return (
-    <div className="create-account-overlay">
+    <div className="create-account-overlay" onClick={handleClickCancel}>
       <div className="create-account-modal">
         <h1>Create an Account</h1>
         <form onSubmit={handleSubmit}>
@@ -100,12 +100,14 @@ export default function CreateAccountModal({
             onChange={handleChange}
           />
 
+          <button onClick={handleClickCancel}>Cancel</button>
           <button type="submit">Create Account</button>
         </form>
         <p>{status}</p>
-        <button onClick={handleClickCancel}>Cancel</button>
-        <p>Already have an account?</p>
-        <button onClick={handleClickLogin}>Login</button>
+        <div className="create-account-modal-login">
+          <p>Already have an account?</p>
+          <button onClick={handleClickLogin}>Login</button>
+        </div>
       </div>
     </div>
   );

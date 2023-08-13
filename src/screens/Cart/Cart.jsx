@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import CartItem from "../../components/CartItem/CartItem";
-import "./Cart.css";
 
 export default function Cart() {
   const [cars, setCars] = useState(JSON.parse(localStorage.getItem("cart")));

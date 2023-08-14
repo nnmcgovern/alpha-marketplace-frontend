@@ -31,16 +31,19 @@ export default function CreateAccountModal({
       try {
         const user = await signUp(form);
         setUser(user);
+        setShowCreateAccountModal(false);
+        document.body.classList.remove("modal-open");
       } catch (err) {
         setForm({
           username: "",
           email: "",
           password: "",
-          passwordConfirmation: "",
+          passwordConfirm: "",
           isError: true,
           errorMsg: "Sign Up Details Invalid",
         });
       }
+      console.log("CreateAccountModal--afterPost: ", form); // FOR TESTING
     }
   };
 
@@ -100,7 +103,9 @@ export default function CreateAccountModal({
             onChange={handleChange}
           />
 
-          <button onClick={handleClickCancel}>Cancel</button>
+          <button type="button" onClick={handleClickCancel}>
+            Cancel
+          </button>
           <button type="submit">Create Account</button>
         </form>
         <p>{status}</p>

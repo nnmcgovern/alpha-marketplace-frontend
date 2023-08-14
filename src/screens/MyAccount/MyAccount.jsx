@@ -28,10 +28,10 @@ export default function MyAccount() {
   // ];
   return (
     <div>
-      <div className="my-acct-sidebar">
+      {/* <div className="my-acct-sidebar">
         <button>My Listings</button>
         <button>My Favorites</button>
-      </div>
+      </div> */}
       <div className="my-acct-listings-header">
         <h1>My Account</h1>
         <button>Add New</button>

@@ -15,13 +15,12 @@ export default function MyItems({ items }) {
               <div>Color: {item.color}</div>
               <div>Price: ${item.price}</div>
             </div>
+            <div className="items-modal-buttons">
+              <button>Edit</button>
+              <button>Delete Item</button>
+            </div>
           </div>
         ))}
-
-        <div className="items-modal-buttons">
-          <button>Edit</button>
-          <button>Delete Item</button>
-        </div>
       </div>
       {/* <button className='new-item-btn'>List New Item</button> */}
     </div>

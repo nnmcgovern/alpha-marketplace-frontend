@@ -37,7 +37,7 @@ export default function CartItem({ car, setRerender }) {
         <p>Body Type: {car.type}</p>
         <p>Year: {car.year}</p>
         <p>Color: {car.color}</p>
-        <p>${car.price}</p>
+        <p>Price: ${car.price}</p>
         <p>Sold by: {seller}</p>
       </div>
       <button className="cart-item-button" onClick={handleClick}>

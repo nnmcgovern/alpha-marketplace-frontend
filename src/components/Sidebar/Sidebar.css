@@ -1,0 +1,32 @@
+.sidebar {
+  width: 220px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 83.5px;
+  /* height: calc(100vh - 10px); */
+}
+
+.sidebar div {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.sidebar select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* For Dropdown Menus */
+.sidebar div.active {
+  background-color: #ddd;
+}

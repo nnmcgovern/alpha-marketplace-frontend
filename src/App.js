@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import AllCars from "./screens/AllCars/AllCars";
 import Cart from "./screens/Cart/Cart";
 import Home from "./screens/Home/Home.jsx";
+import Checkout from "./screens/Checkout/Checkout.jsx";
 // import Login from "./screens/Login";
 import MyAccount from "./screens/MyAccount/MyAccount";
 import LoginModal from "./components/LoginModal/LoginModal";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/myaccount" element={<MyAccount />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       {!user && showLoginModal && (
         <LoginModal

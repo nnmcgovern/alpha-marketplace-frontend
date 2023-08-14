@@ -1,8 +1,9 @@
 import "./Checkout.css";
 import { useState, useEffect } from "react";
-import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
+import CartItem from "../../components/CartItem/CartItem";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/apiConfig";
+import { deleteCar } from "../../services/cars";
 
 export default function Checkout() {
   const [cars, setCars] = useState(JSON.parse(localStorage.getItem("cart")));
@@ -30,28 +31,31 @@ export default function Checkout() {
     }));
   }
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const carIds = cars.map((car) => car._id);
-
-      try {
-        const res = await api.post(`/checkout`, { carIds, ...userData});
-
-        if (res.data.success) {
-          alert("Thank you for your purchase!");
-          // Clear cart
-          localStorage.setItem("cart", JSON.stringify([]));
-          setRerender(!rerender);
-          // redirect to homepage
-          navigate("/");
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-        
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Collect car IDs
+    // const carIds = cars.map((car) => car._id);
+  
+    try {
+      cars.forEach(async (car) => {
+        // Delete car from database
+        await deleteCar(car._id);
+      });
+  
+      alert("Thank you for your purchase!");
+      
+      // Clear cart
+      localStorage.setItem("cart", JSON.stringify([]));
+      setRerender(!rerender);
+      
+      // Redirect to homepage or a success page
+      navigate("/");
+    } catch (error) {
+      console.log("Error deleting the car: ", error);
+      alert("Something went wrong. Please try again.");
+    }
+  }; 
 
     return (
       <div>
@@ -85,7 +89,7 @@ export default function Checkout() {
         <div className="checkout-item-list-container">
           {cars &&
             cars.map((car) => (
-              <CheckoutItem car={car} setRerender={setRerender} key={car._id} />
+              <CartItem car={car} setRerender={setRerender} key={car._id} />
             ))}
         </div>
 

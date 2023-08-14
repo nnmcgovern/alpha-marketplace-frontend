@@ -1,7 +1,8 @@
-import { useState } from "react";
-// import API post request function
+import { useState, useEffect } from "react";
+import { createCar } from "../../services/cars";
+// import { getUserIdByUsername } from "../../services/users";
 
-export default function NewCarModal({ setShowNewCarModal }) {
+export default function NewCarModal({ user, setShowNewCarModal }) {
   const [car, setCar] = useState({
     make: "",
     model: "",
@@ -13,10 +14,18 @@ export default function NewCarModal({ setShowNewCarModal }) {
     image: "",
   });
 
+  useEffect(() => {
+    // async function test() {
+    //   const userID = await getUserIdByUsername(user.username);
+    //   console.log(`userID for ${user.username}: `, userID);
+    // }
+    // test();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // call API post function and pass car
-    // navigate?
+    await createCar(car);
+    setShowNewCarModal(false);
   };
 
   const handleChange = (e) => {
@@ -60,6 +69,7 @@ export default function NewCarModal({ setShowNewCarModal }) {
           onChange={handleChange}
         />
 
+        <p>Year:</p>
         <input
           type="number"
           placeholder="Year"
@@ -76,6 +86,7 @@ export default function NewCarModal({ setShowNewCarModal }) {
           onChange={handleChange}
         />
 
+        <p>Price:</p>
         <input
           type="number"
           placeholder="Sale Price"
@@ -92,7 +103,9 @@ export default function NewCarModal({ setShowNewCarModal }) {
           onChange={handleChange}
         />
 
-        <button onClick={handleClickClose}>Cancel</button>
+        <button type="button" onClick={handleClickClose}>
+          Cancel
+        </button>
         <button type="submit">Create Listing</button>
       </form>
     </div>

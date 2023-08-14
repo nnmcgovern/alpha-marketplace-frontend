@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
-import MyItem from "../../components/MyItem/MyItem";
+import MyItems from "../../components/MyItems/MyItems";
 
 export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
@@ -36,10 +36,7 @@ export default function MyAccount() {
         <h1>My Account</h1>
         <button>Add New</button>
       </div>
-      {myItems.map((item) => (
-        <MyItem car={item} />
-      ))}
-      {/* {items && <MyItems items={items} />} */}
+      <MyItems items={myItems} />
       {showNewCarModal && (
         <NewCarModal setShowNewCarModal={setShowNewCarModal} /> // should appear when 'add new' button is clicked
       )}

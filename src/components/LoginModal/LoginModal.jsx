@@ -25,7 +25,8 @@ export default function LoginModal({
     try {
       const user = await login(form);
       setUser(user);
-      // setShowLoginModal(false);
+      setShowLoginModal(false);
+      document.body.classList.remove("modal-open");
     } catch (error) {
       console.error(error);
       setForm({
@@ -35,9 +36,6 @@ export default function LoginModal({
         errorMsg: "Invalid Credentials",
       });
     }
-
-    setShowLoginModal(false);
-    document.body.classList.remove("modal-open");
   };
 
   const handleChange = (e) => {
@@ -81,7 +79,9 @@ export default function LoginModal({
           />
 
           <div className="login-modal-form-buttons">
-            <button onClick={handleClickCancel}>Cancel</button>
+            <button type="button" onClick={handleClickCancel}>
+              Cancel
+            </button>
             <button type="submit">Login</button>
           </div>
         </form>

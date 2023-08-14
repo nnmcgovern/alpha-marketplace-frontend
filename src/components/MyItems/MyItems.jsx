@@ -1,13 +1,13 @@
-import './MyItems.css';
+import "./MyItems.css";
 
 export default function MyItems({ items }) {
   return (
-    <div className='items-modal'>
-      <div className='items-modal-content'>
+    <div className="my-items">
+      <div className="items-modal-content">
         {items.map((item, index) => (
-          <div key={index} className='item'>
+          <div key={index} className="item">
             <img src={item.image} alt={`${item.maker} ${item.model}`} />
-            <div className='item-info'>
+            <div className="item-info">
               <div>Make: {item.maker}</div>
               <div>Model: {item.model}</div>
               <div>Body Type: {item.type}</div>
@@ -18,12 +18,12 @@ export default function MyItems({ items }) {
           </div>
         ))}
 
-        <div className='items-modal-buttons'>
+        <div className="items-modal-buttons">
           <button>Edit</button>
           <button>Delete Item</button>
         </div>
       </div>
-      <button className='new-item-btn'>List New Item</button>
+      {/* <button className='new-item-btn'>List New Item</button> */}
     </div>
   );
 }

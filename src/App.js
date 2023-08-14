@@ -21,6 +21,7 @@ function App() {
     const fetchUser = async () => {
       const user = await verify();
       user ? setUser(user) : setUser(null);
+      console.log("from App.js: user: ", user);
     };
     fetchUser();
   }, []);

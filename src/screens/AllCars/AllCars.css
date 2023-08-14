@@ -1,4 +1,12 @@
+/* body {
+  padding-top: 60px;
+} */
+
 .all-cars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: calc(100% - 240px);
+  margin-left: 240px;
 }

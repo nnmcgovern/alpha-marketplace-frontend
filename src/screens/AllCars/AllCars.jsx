@@ -8,6 +8,8 @@ import '../../components/Sidebar/Sidebar.css';
 export default function AllCars() {
   const [cars, setCars] = useState([]);
   const [checked, setChecked] = useState({});
+  const [selectedModel, setSelectedModel] = useState('');
+  const [selectedMake, setSelectedMake] = useState('');
 
   useEffect(() => {
     fetchCars();
@@ -25,14 +27,26 @@ export default function AllCars() {
 
   return (
     <div>
-      <Sidebar checked={checked} setChecked={setChecked} />
+      <Sidebar
+        checked={checked}
+        setChecked={setChecked}
+        setSelectedModel={setSelectedModel}
+        selectedMake={selectedMake}
+        setSelectedMake={setSelectedMake}
+      />
       <div className='all-cars-grid'>
         {!Object.values(checked).includes(true) &&
-          cars.map((car) => (
-            <CarPreview car={car} key={car._id} /> // create list of image + make, model for each car
-          ))}
+          cars
+            .filter((car) => !selectedModel || car.model === selectedModel)
+            .map((car) => (
+              <CarPreview car={car} key={car._id} /> // create list of image + make, model for each car
+            ))}
         {cars
-          .filter((car) => arr.includes(car.make.toLowerCase()))
+          .filter(
+            (car) =>
+              arr.includes(car.make.toLowerCase()) &&
+              (!selectedModel || car.model === selectedModel)
+          )
           .map((car) => (
             <CarPreview car={car} key={car._id} />
           ))}

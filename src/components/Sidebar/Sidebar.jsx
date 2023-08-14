@@ -1,8 +1,20 @@
 import { useState } from 'react';
-import { checked, setChecked } from '../../screens/AllCars/AllCars.jsx';
-export default function Sidebar({ checked, setChecked }) {
-  const [activeMenu, setActiveMenu] = useState(false); //update the status of active menu
+import {
+  checked,
+  setChecked,
+  setSelectedModel,
+  selectedMake,
+  setSelectedMake,
+} from '../../screens/AllCars/AllCars.jsx';
 
+export default function Sidebar({
+  checked,
+  setChecked,
+  setSelectedModel,
+  selectedMake,
+  setSelectedMake,
+}) {
+  const [activeMenu, setActiveMenu] = useState(false); //update the status of active menu
   const [activeModel, setActiveModel] = useState(false);
 
   const handleMenuClick = (menu) => {
@@ -15,11 +27,20 @@ export default function Sidebar({ checked, setChecked }) {
 
   const handleCheckedChange = (e) => {
     const { name, checked } = e.target;
+    if (checked) {
+      setSelectedMake(name);
+    } else if (selectedMake === name) {
+      setSelectedMake('');
+    }
     setChecked((prev) => ({
       ...prev,
       [name]: checked,
     }));
     //if (all boxes unchecked) { setChecked({all:true}) return }
+  };
+
+  const handleModelChange = (e) => {
+    setSelectedModel(e.target.value);
   };
   //if none of the boxes are checked, all true, then return
   //if one or more of the boxes are chekcked, make all false. and make appropriate boxes true
@@ -28,6 +49,134 @@ export default function Sidebar({ checked, setChecked }) {
   //in all cars, filter through... all cars and return just the cars that are checked. then map through that
   //returned filter and render those on the page
   //
+
+  const getModelOptions = () => {
+    if (selectedMake === 'audi') {
+      return (
+        <optgroup label='audi'>
+          <option value='a3'>A3</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'bmw') {
+      return (
+        <optgroup label='BMW'>
+          <option value='X5'>X5</option>
+          <option value='M3'>M3</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'chevrolet') {
+      return (
+        <optgroup label='Chevrolet'>
+          <option value='Camaro'>Camaro</option>
+          <option value='Impala'>Impala</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'dodge') {
+      return (
+        <optgroup label='Dodge'>
+          <option value='Charger'>Charger</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'ford') {
+      return (
+        <optgroup label='Ford'>
+          <option value='Mustang'>Mustang</option>
+          <option value='Focus'>Focus</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'dodge') {
+      return (
+        <optgroup label='Dodge'>
+          <option value='Charger'>Charger</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'honda') {
+      return (
+        <optgroup label='Honda'>
+          <option value='Civc'>Civc</option>
+          <option value='Accord'>Accord</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'hyundai') {
+      return (
+        <optgroup label='Hyundai'>
+          <option value='Tucson'>Tucson</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'hyundai') {
+      return (
+        <optgroup label='Hyundai'>
+          <option value='Tucson'>Tucson</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'jeep') {
+      return (
+        <optgroup label='Jeep'>
+          <option value='Cherokee'>Cherokee</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'kia') {
+      return (
+        <optgroup label='Kia'>
+          <option value='Optima'>Optima</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'mazda') {
+      return (
+        <optgroup label='Mazda'>
+          <option value='3'>3</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'mercedes-benz') {
+      return (
+        <optgroup label='Mercedes-Benz'>
+          <option value='C-Class'>C-Class</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'mercedes-benz') {
+      return (
+        <optgroup label='Mercedes-Benz'>
+          <option value='C-Class'>C-Class</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'nissan') {
+      return (
+        <optgroup label='Nissan'>
+          <option value='Altima'>Altima</option>
+          <option value='Rogue'>Rogue</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'subaru') {
+      return (
+        <optgroup label='Subaru'>
+          <option value='Forester'>Forester</option>
+        </optgroup>
+      );
+    }
+    if (selectedMake === 'volkswagen') {
+      return (
+        <optgroup label='Volkswagen'>
+          <option value='Golf'>Golf</option>
+        </optgroup>
+      );
+    }
+  };
+
   return (
     <div className='sidebar'>
       <div onClick={() => handleMenuClick('make')}>Make</div>
@@ -38,7 +187,7 @@ export default function Sidebar({ checked, setChecked }) {
               type='checkbox'
               id='Audi'
               name='audi'
-              value={checked.box1}
+              value={checked.audi}
               onChange={handleCheckedChange}
             />
             <label htmlFor='Audi'>Audi</label>
@@ -48,7 +197,7 @@ export default function Sidebar({ checked, setChecked }) {
               type='checkbox'
               id='BMW'
               name='bmw'
-              value={checked.box2}
+              value={checked.bmw}
               onChange={handleCheckedChange}
             />
             <label htmlFor='BMW'>BMW</label>
@@ -179,18 +328,7 @@ export default function Sidebar({ checked, setChecked }) {
 
       <div onClick={() => handleMenuClick('model')}>Model</div>
       {activeModel && (
-        <select>
-          <optgroup label='BMW'>
-            <option value='X1'>X1</option>
-            <option value='X3'>X3</option>
-            <option value='X5'>X5</option>
-          </optgroup>
-          <optgroup label='Nissan'>
-            <option value='Altima'>Altima</option>
-            <option value='Rogue'>Rogue</option>
-            <option value='Leaf'>Leaf</option>
-          </optgroup>
-        </select>
+        <select onChange={handleModelChange}>{getModelOptions()}</select>
       )}
     </div>
   );

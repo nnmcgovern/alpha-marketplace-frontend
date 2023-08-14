@@ -25,7 +25,6 @@ export default function CreateAccountModal({
       setStatus("Passwords do not match");
     } else {
       setStatus("");
-      console.log("CreateAccountModal--newUser: ", form); // FOR TESTING
 
       // create new user
       try {

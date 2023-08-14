@@ -9,6 +9,7 @@ export default function MyAccount({ user }) {
 
   useEffect(() => {
     fetchUserId();
+    console.log("useeffect user: ", user);
   }, []);
 
   async function fetchUserId() {

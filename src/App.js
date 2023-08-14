@@ -20,7 +20,9 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await verify();
+      // console.log("app.js user: ", user);
       user ? setUser(user) : setUser(null);
+      console.log("app.js user: ", user);
     };
     fetchUser();
   }, []);
@@ -45,7 +47,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/myaccount" element={<MyAccount />} />
+        <Route path="/myaccount" element={<MyAccount user={user} />} />
         <Route
           path="/checkout"
           element={

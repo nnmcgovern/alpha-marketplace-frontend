@@ -5,7 +5,6 @@ import AllCars from "./screens/AllCars/AllCars";
 import Cart from "./screens/Cart/Cart";
 import Home from "./screens/Home/Home.jsx";
 import Checkout from "./screens/Checkout/Checkout.jsx";
-// import Login from "./screens/Login";
 import MyAccount from "./screens/MyAccount/MyAccount";
 import LoginModal from "./components/LoginModal/LoginModal";
 import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
@@ -46,9 +45,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
-<<<<<<< HEAD
-        <Route path="/myaccount" element={<MyAccount user={user} />} />
-=======
         <Route path="/myaccount" element={<MyAccount />} />
         <Route
           path="/checkout"
@@ -58,7 +54,6 @@ function App() {
             </ProtectedRoute>
           }
         />
->>>>>>> 187f1285774e10530e65fcb49b340cc083206f65
       </Routes>
       {!user && showLoginModal && (
         <LoginModal

@@ -1,44 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
 import MyItems from "../../components/MyItems/MyItems";
+import { getUserIdByUsername } from "../../services/users";
 
-export default function MyAccount() {
+export default function MyAccount({ user }) {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
   const [myItems, setMyItems] = useState([]);
-  // const items = [
-  //   // example car
-  //   {
-  //     image: '',
-  //     maker: 'Lamborghini',
-  //     model: 'Urus',
-  //     type: 'SUV',
-  //     year: 2023,
-  //     color: 'Yellow',
-  //     price: 500000,
-  //   },
-  //   {
-  //     image: '',
-  //     maker: 'Porsche',
-  //     model: '911 TurboS',
-  //     type: 'Coupe',
-  //     year: 2023,
-  //     color: 'Red',
-  //     price: 300000,
-  //   },
-  // ];
+
+  useEffect(() => {
+    fetchUserId();
+  }, []);
+
+  async function fetchUserId() {
+    const userId = await getUserIdByUsername(user.username);
+    console.log("user id: ", userId);
+  }
+
+  const handleClickNew = (e) => {
+    setShowNewCarModal(true);
+  };
+
   return (
     <div>
       {/* <div className="my-acct-sidebar">
         <button>My Listings</button>
         <button>My Favorites</button>
       </div> */}
+      <h1>Welcome, {user.username}!</h1>
       <div className="my-acct-listings-header">
-        <h1>My Account</h1>
-        <button>Add New</button>
+        <h1>My Listings</h1>
+        <button onClick={handleClickNew}>Add New</button>
       </div>
       <MyItems items={myItems} />
       {showNewCarModal && (
-        <NewCarModal setShowNewCarModal={setShowNewCarModal} /> // should appear when 'add new' button is clicked
+        <NewCarModal user={user} setShowNewCarModal={setShowNewCarModal} /> // should appear when 'add new' button is clicked
       )}
     </div>
   );

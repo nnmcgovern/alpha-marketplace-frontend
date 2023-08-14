@@ -1,6 +1,10 @@
 import "./MyItems.css";
 
 export default function MyItems({ items }) {
+  const handleClickEdit = (e) => {};
+
+  const handleClickDelete = (e) => {};
+
   return (
     <div className="my-items">
       <div className="items-modal-content">
@@ -16,8 +20,8 @@ export default function MyItems({ items }) {
               <div>Price: ${item.price}</div>
             </div>
             <div className="items-modal-buttons">
-              <button>Edit</button>
-              <button>Delete Item</button>
+              <button onClick={handleClickEdit}>Edit</button>
+              <button onClick={handleClickDelete}>Delete Item</button>
             </div>
           </div>
         ))}

@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar/Navbar";
 import AllCars from "./screens/AllCars/AllCars";
 import Cart from "./screens/Cart/Cart";
 import Home from "./screens/Home/Home.jsx";
-// import Login from "./screens/Login";
 import MyAccount from "./screens/MyAccount/MyAccount";
 import LoginModal from "./components/LoginModal/LoginModal";
 import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
@@ -14,14 +13,12 @@ import { verify } from "./services/users";
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showCreateAccountModal, setShowCreateAccountModal] = useState(false);
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       const user = await verify();
       user ? setUser(user) : setUser(null);
-      console.log("from App.js: user: ", user);
     };
     fetchUser();
   }, []);
@@ -37,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/myaccount" element={<MyAccount />} />
+        <Route path="/myaccount" element={<MyAccount user={user} />} />
       </Routes>
       {!user && showLoginModal && (
         <LoginModal

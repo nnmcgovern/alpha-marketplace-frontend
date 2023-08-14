@@ -109,11 +109,13 @@ const UserSchema = new mongoose.Schema({
 
 ---
 
-| User Endpoints | Description                 |
-| -------------- | --------------------------- |
-| /signup        | Signup with new account     |
-| /login         | Login with existing account |
-| /verify        | Authenticate the user       |
+| User Endpoints | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| /:id           | Search for user by id                                   |
+| /signup        | Signup with new account                                 |
+| /login         | Login with existing account                             |
+| /verify        | Authenticate the user                                   |
+| /checkout      | Removes cars from database after they've been purchased |
 
 ## 🤝 Contribution
 

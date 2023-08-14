@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import AllCars from "./screens/AllCars/AllCars";
 import Cart from "./screens/Cart/Cart";
 import Home from "./screens/Home/Home.jsx";
-// import Login from "./screens/Login";
+import Checkout from "./screens/Checkout/Checkout.jsx";
 import MyAccount from "./screens/MyAccount/MyAccount";
 import LoginModal from "./components/LoginModal/LoginModal";
 import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
@@ -12,9 +12,9 @@ import "./App.css";
 import { verify } from "./services/users";
 
 function App() {
+  const location = useLocation();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showCreateAccountModal, setShowCreateAccountModal] = useState(false);
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -24,6 +24,15 @@ function App() {
     };
     fetchUser();
   }, []);
+
+  const ProtectedRoute = ({ children }) => {
+    // If the user is not logged in and they're trying to access a protected route, redirect them to the login page
+    if (!user && location.pathname === "/checkout") {
+      setShowLoginModal(true);
+      return null;
+    }
+    return children;
+  };
 
   return (
     <div className="App">
@@ -37,6 +46,14 @@ function App() {
         <Route path="/all-cars" element={<AllCars />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/myaccount" element={<MyAccount />} />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       {!user && showLoginModal && (
         <LoginModal

@@ -10,10 +10,18 @@ export const getUser = async (id) => {
   }
 };
 
+export const getUserIdByUsername = async (username) => {
+  try {
+    const res = await api.get(`/username/${username}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const login = async (credentials) => {
   try {
     const res = await api.post("/login", credentials);
-    // console.log(res.data);
     localStorage.setItem("token", res.data.token);
     const user = jwtDecode(res.data.token);
     return user;

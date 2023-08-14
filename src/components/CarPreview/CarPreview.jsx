@@ -17,7 +17,7 @@ export default function CarPreview({ car }) {
       {showCarDetailModal && (
         <CarDetailModal
           car={car}
-          setShowCarDetailModal={setShowCarDetailModal} // pass set function so that close button on modal can change state
+          setShowCarDetailModal={setShowCarDetailModal}
         />
       )}
     </div>

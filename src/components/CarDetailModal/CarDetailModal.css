@@ -1,25 +1,54 @@
-.car-detail-modal {
+body.modal-open {
+  height: 100%;
+  overflow: hidden;
+}
+
+.car-detail-overlay {
   z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.car-detail-modal {
+  z-index: 2;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 700px;
+  height: 410px;
+  padding: 50px;
   background-color: #FFFFFF;
+  border-radius: 4px;
 
   display: grid;
   grid-template-areas:
-    "a a"
-    "b c"
-    "d e"
-    "g h"
-    "i j"
-    "k l"
-    "m m";
+    "a b"
+    "c d";
 }
 
 .car-detail-image {
   grid-area: a;
 }
 
-.car-detail-seller {
-  grid-area: m;
+.car-detail-modal button {
+  background-color: #fcae1e;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(30, 48, 80);
+  width: 130px;
+  padding: 10px;
+  margin-top: 35px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.car-detail-modal button:hover {
+  background-color: #263343;
+  color: #FFFFFF;
 }

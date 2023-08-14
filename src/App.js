@@ -5,7 +5,6 @@ import AllCars from "./screens/AllCars/AllCars";
 import Cart from "./screens/Cart/Cart";
 import Home from "./screens/Home/Home.jsx";
 import Checkout from "./screens/Checkout/Checkout.jsx";
-// import Login from "./screens/Login";
 import MyAccount from "./screens/MyAccount/MyAccount";
 import LoginModal from "./components/LoginModal/LoginModal";
 import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";

@@ -25,12 +25,13 @@ export default function CreateAccountModal({
       setStatus("Passwords do not match");
     } else {
       setStatus("");
-      console.log("CreateAccountModal--newUser: ", form); // FOR TESTING
 
       // create new user
       try {
         const user = await signUp(form);
         setUser(user);
+        setShowCreateAccountModal(false);
+        document.body.classList.remove("modal-open");
       } catch (err) {
         setForm({
           username: "",

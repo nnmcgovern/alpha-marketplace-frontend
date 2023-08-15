@@ -55,6 +55,7 @@ export default function EditCarModal({
             name="make"
             value={carUpdate.make}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -63,6 +64,7 @@ export default function EditCarModal({
             name="model"
             value={carUpdate.model}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -71,6 +73,7 @@ export default function EditCarModal({
             name="type"
             value={carUpdate.type}
             onChange={handleChange}
+            required
           />
 
           <p>Year:</p>
@@ -80,6 +83,7 @@ export default function EditCarModal({
             name="year"
             value={carUpdate.year}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -88,6 +92,7 @@ export default function EditCarModal({
             name="color"
             value={carUpdate.color}
             onChange={handleChange}
+            required
           />
 
           <p>Price:</p>
@@ -97,6 +102,7 @@ export default function EditCarModal({
             name="price"
             value={carUpdate.price}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -105,6 +111,7 @@ export default function EditCarModal({
             name="image"
             value={carUpdate.image}
             onChange={handleChange}
+            required
           />
 
           <div className="edit-car-form-buttons">

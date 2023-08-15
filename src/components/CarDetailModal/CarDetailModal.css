@@ -14,19 +14,37 @@ body.modal-open {
 }
 
 .car-detail-modal {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
-  top: 25%;
+  top: 10%;
   left: 25%;
-  width: 700px;
-  height: 410px;
-  padding: 50px;
+  width: 500px;
+  /* height: 410px; */
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 4px;
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     'a b'
-    'c d';
+    'c d'; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-detail-modal-buttons {
+  display: flex;
+}
+
+.car-item-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+
+.car-item-column p {
+  margin: 0;
+
 }
 
 .car-detail-label {
@@ -64,6 +82,7 @@ body.modal-open {
   /* margin-top: 35px; */
   font-size: 17px;
   cursor: pointer;
+  margin: 20px;
 }
 
 .car-detail-modal button:hover {
@@ -73,14 +92,14 @@ body.modal-open {
 
 @media only screen and (max-width: 480px) {
   .car-detail-modal {
-    top: 30%;
+    top: 20%;
     left: 5%;
     width: 90%;
     height: auto;
     padding: 20px;
     overflow-y: auto;
     max-height: 80vh;
-    z-index: 2000;
+    z-index: 2;
   }
 
   .car-detail-image {
@@ -90,6 +109,6 @@ body.modal-open {
 
   .car-detail-modal button {
     width: 100%;
-    margin: 20px 0;
+    /* margin: 20px 0; */
   }
 }

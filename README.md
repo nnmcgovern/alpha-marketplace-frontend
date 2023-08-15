@@ -32,6 +32,8 @@ Welcome to **Alpha Marketplace** - your go-to platform for buying and selling ca
 ### Deployment
 
 - Backend database & server deployed using Mongo Atlas & Heroku
+- Frontend deployed via Netlify
+- [Deployed E-commerce Website](https://alpha-marketplace.netlify.app)
 - [API on Heroku](https://alpha-marketplace-backend-18469668e160.herokuapp.com/api/cars)
 - [GitHub Repo](https://github.com/sjkoshy/alpha-marketplace-backend)
 
@@ -96,26 +98,26 @@ const UserSchema = new mongoose.Schema({
 | Car Endpoints      | Description                                                               |
 | ------------------ | ------------------------------------------------------------------------- |
 | /cars              | See all cars available                                                    |
-| /cars/:id          | Search for one car by id                                                  |
+| /cars/user/:id     | Search for one car by user ID                                             |
 | /cars/make/:make   | Search for cars by make                                                   |
 | /cars/model/:model | Search for cars by model                                                  |
 | /cars/type/:type   | Search for cars by type                                                   |
 | /cars/year/:year   | Search for cars by year                                                   |
 | /cars/color/:color | Search for cars by color                                                  |
 | /cars/price/:price | Search for cars by price --> price includes a min & max                   |
+| /cars/:id          | Search for one car by id                                                  |
 | /cars              | Create new car                                                            |
 | /cars/:id          | Update car listing --> this is restricted to the user who created the car |
 | /cars/:id          | Delete car listing --> this is restricted to the user who created the car |
 
 ---
 
-| User Endpoints | Description                                             |
-| -------------- | ------------------------------------------------------- |
-| /:id           | Search for user by id                                   |
-| /signup        | Signup with new account                                 |
-| /login         | Login with existing account                             |
-| /verify        | Authenticate the user                                   |
-| /checkout      | Removes cars from database after they've been purchased |
+| User Endpoints | Description                 |
+| -------------- | --------------------------- |
+| /signup        | Signup with new account     |
+| /login         | Login with existing account |
+| /verify        | Authenticate the user       |
+| /:id           | Search for user by id       |
 
 ## 🤝 Contribution
 

@@ -65,7 +65,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           <p>Body Type: {car.type}</p>
           <p>Year: {car.year}</p>
           <p>Color: {car.color}</p>
-          <p className="car-detail-price">${car.price}</p>
+          <p className="car-detail-price">Price: ${car.price}</p>
           <p className="car-detail-seller">Sold by: {seller}</p>
         </div>
         <button className="car-detail-close" onClick={handleClickClose}>

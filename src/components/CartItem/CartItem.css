@@ -40,6 +40,12 @@
  gap: 30%;
 
 }
+.cart-item-label {
+  color: #fcae1e;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px;
+}
 
 /* .cart-item-column {
   display: flex;

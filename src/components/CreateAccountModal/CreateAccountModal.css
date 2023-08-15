@@ -26,6 +26,10 @@ body.modal-open {
   color: #263343;
 }
 
+.create-account-modal * {
+  color: #263343;
+}
+
 .create-account-modal h1 {
   text-align: center;
 }
@@ -77,6 +81,13 @@ body.modal-open {
   color: #FFFFFF;
 }
 
+.create-account-password-status {
+  position: fixed;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 820px) {
   .create-account-modal {
     top: 25%;
@@ -109,5 +120,9 @@ body.modal-open {
 
   .create-account-modal-login {
     margin-top: 0;
+  }
+
+  .create-account-password-status {
+    margin-bottom: 0;
   }
 }

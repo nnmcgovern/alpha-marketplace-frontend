@@ -13,6 +13,7 @@ export default function LoginModal({
     isError: false,
     errorMsg: "",
   });
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     document.body.classList.add("modal-open"); // add css to disable body scrolling
@@ -88,6 +89,7 @@ export default function LoginModal({
             <button type="submit">Login</button>
           </div>
         </form>
+        <p>{status}</p>
         <div className="login-modal-create-acc">
           <p>Not registered?</p>
           <button onClick={handleClickCreateAccount}>Create Account</button>

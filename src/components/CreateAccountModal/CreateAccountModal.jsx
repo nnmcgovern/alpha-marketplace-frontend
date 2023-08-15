@@ -21,7 +21,7 @@ export default function CreateAccountModal({
     e.preventDefault();
 
     // ISSUE: if, else not working as intended currently
-    if (!form.password === form.passwordConfirm) {
+    if (form.password !== form.passwordConfirm) {
       setStatus("Passwords do not match");
     } else {
       setStatus("");
@@ -111,7 +111,7 @@ export default function CreateAccountModal({
           </button>
           <button type="submit">Create Account</button>
         </form>
-        <p>{status}</p>
+        <p className="create-account-password-status">{status}</p>
         <div className="create-account-modal-login">
           <p>Already have an account?</p>
           <button onClick={handleClickLogin}>Login</button>

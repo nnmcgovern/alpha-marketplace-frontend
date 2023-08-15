@@ -16,17 +16,31 @@ body.modal-open {
 .car-detail-modal {
   z-index: 2;
   position: fixed;
-  top: 25%;
+  top: 10%;
   left: 25%;
-  width: 700px;
-  height: 410px;
-  padding: 50px;
+  width: 500px;
+  /* height: 410px; */
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 4px;
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     'a b'
-    'c d';
+    'c d'; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-item-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+
+.car-item-column p {
+  margin: 0;
+
 }
 
 .car-detail-label {
@@ -64,6 +78,7 @@ body.modal-open {
   /* margin-top: 35px; */
   font-size: 17px;
   cursor: pointer;
+  margin: 20px;
 }
 
 .car-detail-modal button:hover {

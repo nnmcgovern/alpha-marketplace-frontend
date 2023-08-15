@@ -87,18 +87,22 @@ body.modal-open {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 480px) {
   .login-modal {
-    width: 414px;
+    width: 100%;
     height: 500px;
-    top: 10%;
+    top: 15%;
     left: 0;
+  }
+
+  .login-modal form input {
+    padding: 10px;
   }
 
   .login-modal-form-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
   }
 
   .login-modal-form-buttons button {

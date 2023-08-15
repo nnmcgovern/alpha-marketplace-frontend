@@ -25,7 +25,6 @@ export default function LoginModal({
     // login user
     try {
       const user = await login(form);
-      // console.log("user from login modal: ", user);
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
       setShowLoginModal(false);

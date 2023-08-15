@@ -60,14 +60,19 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           alt={`${car.make} ${car.model}`}
         />
         <div className="car-detail-info-container">
-          <p>Make: {car.make}</p>
-          <p>Model: {car.model}</p>
-          <p>Body Type: {car.type}</p>
-          <p>Year: {car.year}</p>
-          <p>Color: {car.color}</p>
-          <p className="car-detail-price">Price: ${car.price}</p>
-          <p className="car-detail-seller">Sold by: {seller}</p>
-        </div>
+          <div className="car-item-column">
+          <p><span className="car-detail-label">Make: </span>{car.make}</p>
+          <p><span className="car-detail-label">Model:</span> {car.model}</p>
+          <p><span className="car-detail-label">Body Type:</span> {car.type}</p>
+          <p><span className="car-detail-label">Year:</span> {car.year}</p>
+          </div>
+          <div className="car-item-column">
+          <p><span className="car-detail-label">Color: </span>{car.color}</p>
+          <p><span className="car-detail-label">Price: $</span>{car.price}</p>
+          <p><span className="car-detail-label">Sold by: </span>{seller}</p>
+          </div>
+          </div>
+
         <button className="car-detail-close" onClick={handleClickClose}>
           Cancel
         </button>

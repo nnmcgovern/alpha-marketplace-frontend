@@ -72,6 +72,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
           <p><span className="car-detail-label">Sold by: </span>{seller}</p>
           </div>
           </div>
+
         <button className="car-detail-close" onClick={handleClickClose}>
           Cancel
         </button>

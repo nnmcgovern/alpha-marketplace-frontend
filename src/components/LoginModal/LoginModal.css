@@ -54,6 +54,7 @@ body.modal-open {
 }
 
 .login-modal button {
+  color: #263343;
   background-color: #fcae1e;
   border: none;
   border-radius: 4px;

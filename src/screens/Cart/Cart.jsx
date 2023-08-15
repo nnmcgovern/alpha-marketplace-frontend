@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem";
+import "./Cart.css";
 
 export default function Cart() {
   const [cars, setCars] = useState(JSON.parse(localStorage.getItem("cart")));
@@ -20,7 +21,7 @@ export default function Cart() {
             <CartItem car={car} setRerender={setRerender} key={car._id} />
           ))}
       </div>
-      <button onClick={() => navigate("/checkout")}>Checkout</button>
+      <button className="checkout-button" onClick={() => navigate("/checkout")}>Checkout</button>
     </div>
   );
 }

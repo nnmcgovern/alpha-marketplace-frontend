@@ -22,7 +22,7 @@ export default function Checkout() {
     // Calculate total
     const totalPrice = cars?.reduce((acc, car) => acc + car.price, 0) || 0;
     setTotal(totalPrice);
-  }, [rerender]);
+  }, [rerender, cars]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,9 +33,6 @@ export default function Checkout() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Collect car IDs
-    // const carIds = cars.map((car) => car._id);
   
     try {
       cars.forEach(async (car) => {
@@ -69,20 +66,26 @@ export default function Checkout() {
             name="name"
             value={userData.name}
             onChange={handleInputChange}
+            required
+            className="form-input name-input"
           />
           <input
             type="text"
-            placeholder="Address fake"
+            placeholder="Fake Address"
             name="address"
             value={userData.address}
-            onChange={handleInputChange}
+            onChange={handleInputChange} required
+            className="form-input address-input"
           />
           <input
             type="text"
-            placeholder="Credit Card fake"
+            placeholder="Fake Credit Card - do not put your real credit card number here"
             name="creditcard"
             value={userData.creditcard}
-            onChange={handleInputChange}
+            onChange={handleInputChange} required
+              className="form-input creditcard-input"
+              pattern="\d*"
+              title="Please enter numbers only"
           />
         </div>
 
@@ -95,9 +98,16 @@ export default function Checkout() {
 
         <div className="total-price">
           <h3>Total: ${total}</h3>
-        </div>
+          </div>
+
+          {!cars || cars.length === 0 && (
+            <p className="empty-cart">Your cart is empty. Please add items before checking out.</p>
+          )}
         
-        <button type="submit">Complete Checkout</button>
+          <button type="submit" className="checkout-btn"
+            disabled={!cars || cars.length === 0}>
+            Complete Checkout
+          </button>
       </form>
       </div>
     );

@@ -1,4 +1,4 @@
-import "./MyItems.css";
+import "./MyItem.css";
 
 export default function MyItems({ car }) {
   const handleClickEdit = (e) => {};

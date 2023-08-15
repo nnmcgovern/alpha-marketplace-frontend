@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
-import MyItems from "../../components/MyItems/MyItems";
+import MyItem from "../../components/MyItem/MyItem";
 // import { getUserIdByUsername } from "../../services/users";
 import { getCarByUserId } from "../../services/cars";
 
@@ -43,7 +43,7 @@ export default function MyAccount() {
       </div>
       {/* <MyItems items={myItems} /> */}
       {myItems.map((item) => (
-        <MyItems car={item} />
+        <MyItem car={item} />
       ))}
       {showNewCarModal && (
         <NewCarModal

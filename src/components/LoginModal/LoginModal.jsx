@@ -68,6 +68,7 @@ export default function LoginModal({
             name="username"
             value={form.username}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -76,6 +77,7 @@ export default function LoginModal({
             name="password"
             value={form.password}
             onChange={handleChange}
+            required
           />
 
           <div className="login-modal-form-buttons">

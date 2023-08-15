@@ -25,6 +25,7 @@ export default function LoginModal({
     try {
       const user = await login(form);
       setUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
       setShowLoginModal(false);
       document.body.classList.remove("modal-open");
     } catch (error) {

@@ -22,8 +22,6 @@ function App() {
       const user = await verify();
       user ? setUser(user) : setUser(null);
       localStorage.setItem("user", JSON.stringify(user));
-
-      // console.log("app.js user: ", user);
     };
     fetchUser();
   }, []);

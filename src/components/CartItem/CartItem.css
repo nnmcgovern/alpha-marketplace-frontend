@@ -30,3 +30,19 @@
   background-color: #263343;
   color: #FFFFFF;
 }
+
+@media only screen and (max-width: 480px){
+  .cart-items-container {
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+      margin: 20px 10px;
+      padding: 15px;
+  }
+
+  .cart-item-button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

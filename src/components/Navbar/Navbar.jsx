@@ -11,6 +11,7 @@ export default function Navbar({ setShowLoginModal, user, setUser }) {
 
   const handleClickLogout = (e) => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
     navigate("/");
   };

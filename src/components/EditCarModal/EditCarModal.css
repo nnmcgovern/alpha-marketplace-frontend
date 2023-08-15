@@ -21,7 +21,7 @@ body.modal-open {
   width: 700px;
   height: 410px;
   padding: 35px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 4px;
   color: #263343;
 }
@@ -45,9 +45,10 @@ body.modal-open {
 .edit-car-form-buttons {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .edit-car-modal button:hover {
   background-color: #263343;
-  color: #FFFFFF;
+  color: #ffffff;
 }

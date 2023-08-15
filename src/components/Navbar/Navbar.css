@@ -46,6 +46,7 @@ body {
 .navbar_menu li:hover {
   background-color: #263343;
   border-radius: 4px;
+  transition: all ease 0.8s;
 }
 
 .navbar_menu li {

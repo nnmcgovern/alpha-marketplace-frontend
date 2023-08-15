@@ -13,8 +13,6 @@ export default function MyAccount() {
   console.log("myacct user: ", user);
 
   useEffect(() => {
-    // fetchUserId();
-    // console.log("may acct useeffect user: ", user);
     fetchItems();
   }, [rerender]);
 
@@ -27,11 +25,6 @@ export default function MyAccount() {
       setMyItems(items);
     }
   }
-
-  // async function fetchUserId() {
-  //   const userId = await getUserIdByUsername(user.username);
-  //   console.log("user id: ", userId.id);
-  // }
 
   const handleClickNew = (e) => {
     setShowNewCarModal(true);
@@ -48,7 +41,10 @@ export default function MyAccount() {
         <h1>My Listings</h1>
         <button onClick={handleClickNew}>Add New</button>
       </div>
-      <MyItems items={myItems} />
+      {/* <MyItems items={myItems} /> */}
+      {myItems.map((item) => (
+        <MyItems car={item} />
+      ))}
       {showNewCarModal && (
         <NewCarModal
           user={user}

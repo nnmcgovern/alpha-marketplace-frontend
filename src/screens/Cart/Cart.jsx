@@ -21,7 +21,9 @@ export default function Cart() {
             <CartItem car={car} setRerender={setRerender} key={car._id} />
           ))}
       </div>
-      <button className="checkout-button" onClick={() => navigate("/checkout")}>Checkout</button>
+      <button className="checkout-button"
+        disabled={!cars || cars.length === 0}
+        onClick={() => navigate("/checkout")}>Checkout</button>
     </div>
   );
 }

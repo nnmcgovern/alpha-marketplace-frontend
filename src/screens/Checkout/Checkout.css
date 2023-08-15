@@ -10,6 +10,8 @@
   margin-top: 35px;
   font-size: 17px;
   cursor: pointer;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .checkout-btn:hover {
@@ -29,7 +31,8 @@
 }
 
 .form-input {
-  width: 100%;             
+  display: flex;
+  width: 50%;             
   padding: 12px 20px;      
   margin: 8px 0;          
   box-sizing: border-box;  
@@ -41,10 +44,45 @@
 
 .total-price {
   font-family: 'Roboto', sans-serif;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .empty-cart {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   margin-top: 20px;
+}
+
+h1 {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.user-details {
+  margin-left: 30px;
+  margin-right: 30px;
+  padding: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .user-details {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .form-input {
+    width: 100%;
+    margin: 10px 0;
+  }
 }

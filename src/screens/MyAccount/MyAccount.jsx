@@ -3,18 +3,21 @@ import NewCarModal from "../../components/NewCarModal/NewCarModal";
 import MyItems from "../../components/MyItems/MyItems";
 import { getUserIdByUsername } from "../../services/users";
 
-export default function MyAccount({ user }) {
+export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
   const [myItems, setMyItems] = useState([]);
+  const user = JSON.parse(localStorage.getItem("user")); // to fix error where user becomes undefined on account page reload
+
+  // console.log("myacct user: ", user);
 
   useEffect(() => {
     fetchUserId();
-    console.log("useeffect user: ", user);
+    // console.log("may acct useeffect user: ", user);
   }, []);
 
   async function fetchUserId() {
     const userId = await getUserIdByUsername(user.username);
-    console.log("user id: ", userId);
+    console.log("user id: ", userId.id);
   }
 
   const handleClickNew = (e) => {

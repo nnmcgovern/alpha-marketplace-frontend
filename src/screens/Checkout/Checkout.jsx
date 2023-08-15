@@ -34,9 +34,6 @@ export default function Checkout() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Collect car IDs
-    // const carIds = cars.map((car) => car._id);
-  
     try {
       cars.forEach(async (car) => {
         // Delete car from database

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { updateCar } from "../../services/cars";
+import "./EditCarModal.css";
 
 export default function EditCarModal({
   car,
@@ -17,10 +18,15 @@ export default function EditCarModal({
     image: car.image,
   });
 
+  useEffect(() => {
+    document.body.classList.add("modal-open"); // add css to disable body scrolling
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateCar(car._id, carUpdate);
     setShowEditCarModal(false);
+    document.body.classList.remove("modal-open");
     setRerender((prev) => !prev);
   };
 
@@ -35,75 +41,80 @@ export default function EditCarModal({
 
   const handleClickClose = (e) => {
     setShowEditCarModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   return (
-    <div>
-      <h1>Edit Listing</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Make"
-          name="make"
-          value={carUpdate.make}
-          onChange={handleChange}
-        />
+    <div className="edit-car-modal-overlay">
+      <div className="edit-car-modal">
+        <h1>Edit Listing</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Make"
+            name="make"
+            value={carUpdate.make}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Model"
-          name="model"
-          value={carUpdate.model}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Model"
+            name="model"
+            value={carUpdate.model}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Body Type"
-          name="type"
-          value={carUpdate.type}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Body Type"
+            name="type"
+            value={carUpdate.type}
+            onChange={handleChange}
+          />
 
-        <p>Year:</p>
-        <input
-          type="number"
-          placeholder="Year"
-          name="year"
-          value={carUpdate.year}
-          onChange={handleChange}
-        />
+          <p>Year:</p>
+          <input
+            type="number"
+            placeholder="Year"
+            name="year"
+            value={carUpdate.year}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Color"
-          name="color"
-          value={carUpdate.color}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Color"
+            name="color"
+            value={carUpdate.color}
+            onChange={handleChange}
+          />
 
-        <p>Price:</p>
-        <input
-          type="number"
-          placeholder="Sale Price"
-          name="price"
-          value={carUpdate.price}
-          onChange={handleChange}
-        />
+          <p>Price:</p>
+          <input
+            type="number"
+            placeholder="Sale Price"
+            name="price"
+            value={carUpdate.price}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Image URL"
-          name="image"
-          value={carUpdate.image}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Image URL"
+            name="image"
+            value={carUpdate.image}
+            onChange={handleChange}
+          />
 
-        <button type="button" onClick={handleClickClose}>
-          Cancel
-        </button>
-        <button type="submit">Update Listing</button>
-      </form>
+          <div className="edit-car-form-buttons">
+            <button type="button" onClick={handleClickClose}>
+              Cancel
+            </button>
+            <button type="submit">Update Listing</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

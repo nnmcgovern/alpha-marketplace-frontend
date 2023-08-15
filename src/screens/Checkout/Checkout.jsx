@@ -83,7 +83,9 @@ export default function Checkout() {
             name="creditcard"
             value={userData.creditcard}
             onChange={handleInputChange} required
-            className="form-input creditcard-input"
+              className="form-input creditcard-input"
+              pattern="\d*"
+              title="Please enter numbers only"
           />
         </div>
 
@@ -99,7 +101,7 @@ export default function Checkout() {
           </div>
 
           {!cars || cars.length === 0 && (
-            <p>Your cart is empty. Please add items before checking out.</p>
+            <p className="empty-cart">Your cart is empty. Please add items before checking out.</p>
           )}
         
           <button type="submit" className="checkout-btn"

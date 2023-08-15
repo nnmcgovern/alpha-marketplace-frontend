@@ -17,6 +17,17 @@
   color: #FFFFFF;
 }
 
+.checkout-btn:disabled {
+  background-color: #263343;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.checkout-btn:disabled:hover {
+  background-color: #263343;
+  color: #FFFFFF;
+}
+
 .form-input {
   width: 100%;             
   padding: 12px 20px;      
@@ -30,4 +41,10 @@
 
 .total-price {
   font-family: 'Roboto', sans-serif;
+}
+
+.empty-cart {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
 }

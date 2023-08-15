@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
-import MyItems from "../../components/MyItems/MyItems";
-import { getUserIdByUsername } from "../../services/users";
+import MyItem from "../../components/MyItem/MyItem";
+import { getCarByUserId } from "../../services/cars";
+import "./MyAccount.css";
 
-export default function MyAccount({ user }) {
+export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
   const [myItems, setMyItems] = useState([]);
+  const [rerender, setRerender] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user")); // to fix error where user becomes undefined on account page reload
 
   useEffect(() => {
-    fetchUserId();
-    console.log("useeffect user: ", user);
-  }, []);
+    fetchItems();
+  }, [rerender]);
 
-  async function fetchUserId() {
-    const userId = await getUserIdByUsername(user.username);
-    console.log("user id: ", userId);
+  async function fetchItems() {
+    const items = await getCarByUserId(user.id);
+
+    if (items) {
+      setMyItems(items);
+    }
   }
 
   const handleClickNew = (e) => {
@@ -22,19 +27,27 @@ export default function MyAccount({ user }) {
   };
 
   return (
-    <div>
+    <div className="my-acct">
       {/* <div className="my-acct-sidebar">
         <button>My Listings</button>
         <button>My Favorites</button>
       </div> */}
-      <h1>Welcome, {user.username}!</h1>
+      <h1 className="my-acct-welcome">
+        Welcome, <span className="my-acct-user">{user.username}</span>!
+      </h1>
       <div className="my-acct-listings-header">
         <h1>My Listings</h1>
         <button onClick={handleClickNew}>Add New</button>
       </div>
-      <MyItems items={myItems} />
+      {myItems.map((item) => (
+        <MyItem car={item} setRerender={setRerender} />
+      ))}
       {showNewCarModal && (
-        <NewCarModal user={user} setShowNewCarModal={setShowNewCarModal} /> // should appear when 'add new' button is clicked
+        <NewCarModal
+          user={user}
+          setRerender={setRerender}
+          setShowNewCarModal={setShowNewCarModal}
+        /> // should appear when 'add new' button is clicked
       )}
     </div>
   );

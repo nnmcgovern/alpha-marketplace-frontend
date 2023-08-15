@@ -25,6 +25,7 @@ export default function LoginModal({
     try {
       const user = await login(form);
       setUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
       setShowLoginModal(false);
       document.body.classList.remove("modal-open");
     } catch (error) {
@@ -68,6 +69,7 @@ export default function LoginModal({
             name="username"
             value={form.username}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -76,6 +78,7 @@ export default function LoginModal({
             name="password"
             value={form.password}
             onChange={handleChange}
+            required
           />
 
           <div className="login-modal-form-buttons">

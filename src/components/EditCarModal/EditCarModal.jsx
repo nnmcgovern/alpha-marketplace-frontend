@@ -1,24 +1,32 @@
 import { useState, useEffect } from "react";
-import { createCar } from "../../services/cars";
-import "./NewCarModal.css";
+import { updateCar } from "../../services/cars";
+import "./EditCarModal.css";
 
-export default function NewCarModal({ setRerender, setShowNewCarModal }) {
-  const { id } = JSON.parse(localStorage.getItem("user"));
-  const [car, setCar] = useState({
-    make: "",
-    model: "",
-    type: "",
-    year: 0,
-    color: "",
-    price: 0,
-    user: id,
-    image: "",
+export default function EditCarModal({
+  car,
+  setShowEditCarModal,
+  setRerender,
+}) {
+  const [carUpdate, setCar] = useState({
+    make: car.make,
+    model: car.model,
+    type: car.type,
+    year: car.year,
+    color: car.color,
+    price: car.price,
+    user: car.user,
+    image: car.image,
   });
+
+  useEffect(() => {
+    document.body.classList.add("modal-open"); // add css to disable body scrolling
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createCar(car);
-    setShowNewCarModal(false);
+    await updateCar(car._id, carUpdate);
+    setShowEditCarModal(false);
+    document.body.classList.remove("modal-open");
     setRerender((prev) => !prev);
   };
 
@@ -32,19 +40,20 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
   };
 
   const handleClickClose = (e) => {
-    setShowNewCarModal(false);
+    setShowEditCarModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   return (
-    <div className="new-car-modal-overlay">
-      <div className="new-car-modal">
-        <h1>List Your Car For Sale</h1>
+    <div className="edit-car-modal-overlay">
+      <div className="edit-car-modal">
+        <h1>Edit Listing</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Make"
             name="make"
-            value={car.make}
+            value={carUpdate.make}
             onChange={handleChange}
             required
           />
@@ -53,7 +62,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="text"
             placeholder="Model"
             name="model"
-            value={car.model}
+            value={carUpdate.model}
             onChange={handleChange}
             required
           />
@@ -62,7 +71,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="text"
             placeholder="Body Type"
             name="type"
-            value={car.type}
+            value={carUpdate.type}
             onChange={handleChange}
             required
           />
@@ -72,7 +81,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="number"
             placeholder="Year"
             name="year"
-            value={car.year}
+            value={carUpdate.year}
             onChange={handleChange}
             required
           />
@@ -81,7 +90,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="text"
             placeholder="Color"
             name="color"
-            value={car.color}
+            value={carUpdate.color}
             onChange={handleChange}
             required
           />
@@ -91,7 +100,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="number"
             placeholder="Sale Price"
             name="price"
-            value={car.price}
+            value={carUpdate.price}
             onChange={handleChange}
             required
           />
@@ -100,16 +109,16 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
             type="text"
             placeholder="Image URL"
             name="image"
-            value={car.image}
+            value={carUpdate.image}
             onChange={handleChange}
             required
           />
 
-          <div className="new-car-form-buttons">
+          <div className="edit-car-form-buttons">
             <button type="button" onClick={handleClickClose}>
               Cancel
             </button>
-            <button type="submit">Create Listing</button>
+            <button type="submit">Update Listing</button>
           </div>
         </form>
       </div>

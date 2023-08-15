@@ -3,7 +3,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-.new-car-modal-overlay {
+.edit-car-modal-overlay {
   z-index: 1;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@ body.modal-open {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.new-car-modal {
+.edit-car-modal {
   z-index: 2;
   position: fixed;
   top: 25%;
@@ -26,11 +26,11 @@ body.modal-open {
   color: #263343;
 }
 
-.new-car-modal h1 {
+.edit-car-modal h1 {
   text-align: center;
 }
 
-.new-car-modal button {
+.edit-car-modal button {
   background-color: #fcae1e;
   border: none;
   border-radius: 4px;
@@ -42,12 +42,12 @@ body.modal-open {
   cursor: pointer;
 }
 
-.new-car-form-buttons {
+.edit-car-form-buttons {
   display: flex;
   justify-content: space-around;
 }
 
-.new-car-modal button:hover {
+.edit-car-modal button:hover {
   background-color: #263343;
   color: #FFFFFF;
 }

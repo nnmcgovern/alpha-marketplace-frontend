@@ -20,6 +20,16 @@ export const getCar = async (id) => {
   }
 };
 
+// GET CAR BY USER ID
+export const getCarByUserId = async (id) => {
+  try {
+    const res = await api.get(`/cars/user/${id}`);
+    return res.data;
+  } catch (err) {
+    console.log("Error at getCarByUserId(): ", err);
+  }
+};
+
 // CREATE CAR
 export const createCar = async (car) => {
   try {

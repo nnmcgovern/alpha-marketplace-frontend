@@ -23,15 +23,33 @@ body.modal-open {
   padding: 50px;
   background-color: #ffffff;
   border-radius: 4px;
-
   display: grid;
   grid-template-areas:
     'a b'
     'c d';
 }
 
+.car-detail-label {
+  color: #fcae1e;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
 .car-detail-image {
   grid-area: a;
+}
+
+.car-detail-info-container {
+  grid-area: b;
+}
+
+.car-detail-close {
+  grid-area: c;
+}
+
+.car-detail-cart {
+  grid-area: d;
 }
 
 .car-detail-modal button {
@@ -43,7 +61,7 @@ body.modal-open {
   color: rgb(30, 48, 80);
   width: 130px;
   padding: 10px;
-  margin-top: 35px;
+  /* margin-top: 35px; */
   font-size: 17px;
   cursor: pointer;
 }

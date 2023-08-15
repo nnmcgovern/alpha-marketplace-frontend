@@ -10,9 +10,35 @@
   margin-top: 35px;
   font-size: 17px;
   cursor: pointer;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .checkout-button:hover {
   background-color: #263343;
   color: #FFFFFF;
+}
+
+.checkout-button:disabled {
+  background-color: #263343;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+h1 {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .checkout-button {
+    width: 100%;
+    margin: 10px 0;
+  }
 }

@@ -43,7 +43,7 @@ export default function MyAccount() {
       </div>
       {/* <MyItems items={myItems} /> */}
       {myItems.map((item) => (
-        <MyItem car={item} />
+        <MyItem car={item} setRerender={setRerender} />
       ))}
       {showNewCarModal && (
         <NewCarModal

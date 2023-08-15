@@ -1,9 +1,14 @@
+import { useState } from "react";
+import { deleteCar } from "../../services/cars";
 import "./MyItem.css";
 
-export default function MyItems({ car }) {
+export default function MyItems({ car, setRerender }) {
   const handleClickEdit = (e) => {};
 
-  const handleClickDelete = (e) => {};
+  const handleClickDelete = async (e) => {
+    await deleteCar(car._id);
+    setRerender((prev) => !prev);
+  };
 
   return (
     // <div className="my-items">

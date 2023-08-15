@@ -83,3 +83,23 @@ body.modal-open {
   background-color: #263343;
   color: #FFFFFF;
 }
+
+@media screen and (max-width: 820px) {
+  .edit-car-modal {
+    top: 25%;
+    left: 30px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .edit-car-modal {
+    width: 414px;
+    height: 600px;
+    top: 15%;
+    left: 0;
+  }
+
+  .edit-car-form-inputs {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
 import MyItem from "../../components/MyItem/MyItem";
-// import { getUserIdByUsername } from "../../services/users";
 import { getCarByUserId } from "../../services/cars";
+import "./MyAccount.css";
 
 export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
@@ -27,17 +27,18 @@ export default function MyAccount() {
   };
 
   return (
-    <div>
+    <div className="my-acct">
       {/* <div className="my-acct-sidebar">
         <button>My Listings</button>
         <button>My Favorites</button>
       </div> */}
-      <h1>Welcome, {user.username}!</h1>
+      <h1 className="my-acct-welcome">
+        Welcome, <span className="my-acct-user">{user.username}</span>!
+      </h1>
       <div className="my-acct-listings-header">
         <h1>My Listings</h1>
         <button onClick={handleClickNew}>Add New</button>
       </div>
-      {/* <MyItems items={myItems} /> */}
       {myItems.map((item) => (
         <MyItem car={item} setRerender={setRerender} />
       ))}

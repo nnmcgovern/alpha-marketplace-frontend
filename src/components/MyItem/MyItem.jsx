@@ -16,22 +16,33 @@ export default function MyItems({ car, setRerender }) {
   };
 
   return (
-    // <div className="my-items">
-    //   <div className="items-modal-content">
-    //     {items.map((item, index) => (
-    <div className="item">
-      <img src={car.image} width="300px" alt={`${car.maker} ${car.model}`} />
-      <div className="item-info">
-        <div>Make: {car.make}</div>
-        <div>Model: {car.model}</div>
-        <div>Body Type: {car.type}</div>
-        <div>Year: {car.year}</div>
-        <div>Color: {car.color}</div>
-        <div>Price: ${car.price}</div>
-      </div>
-      <div className="items-modal-buttons">
-        <button onClick={handleClickEdit}>Edit</button>
-        <button onClick={handleClickDelete}>Delete Item</button>
+    <div className="my-item">
+      <div className="my-item-container">
+        <img src={car.image} width="300px" alt={`${car.maker} ${car.model}`} />
+        <div className="my-item-info">
+          <div>
+            <span className="my-item-label">Make:</span> {car.make}
+          </div>
+          <div>
+            <span className="my-item-label">Model:</span> {car.model}
+          </div>
+          <div>
+            <span className="my-item-label">Body Type:</span> {car.type}
+          </div>
+          <div>
+            <span className="my-item-label">Year:</span> {car.year}
+          </div>
+          <div>
+            <span className="my-item-label">Color:</span> {car.color}
+          </div>
+          <div>
+            <span className="my-item-label">Price:</span> ${car.price}
+          </div>
+        </div>
+        <div className="my-item-buttons">
+          <button onClick={handleClickEdit}>Edit</button>
+          <button onClick={handleClickDelete}>Delete</button>
+        </div>
       </div>
       {showEditCarModal && (
         <EditCarModal
@@ -41,9 +52,5 @@ export default function MyItems({ car, setRerender }) {
         />
       )}
     </div>
-    //     ))}
-    //   </div>
-    //   {/* <button className='new-item-btn'>List New Item</button> */}
-    // </div>
   );
 }

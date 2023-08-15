@@ -24,6 +24,7 @@ export default function MyAccount() {
 
   const handleClickNew = (e) => {
     setShowNewCarModal(true);
+    document.body.classList.add("modal-open");
   };
 
   return (

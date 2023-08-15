@@ -20,6 +20,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
     await createCar(car);
     setShowNewCarModal(false);
     setRerender((prev) => !prev);
+    document.body.classList.remove("modal-open");
   };
 
   const handleChange = (e) => {
@@ -33,6 +34,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
 
   const handleClickClose = (e) => {
     setShowNewCarModal(false);
+    document.body.classList.remove("modal-open");
   };
 
   return (

@@ -39,9 +39,9 @@ body {
   /* transition: max-height 0.3s ease-in-out; */
 }
 
-.navbar_menu li:not(:last-child) {
+/* .navbar_menu li:not(:last-child) {
   margin-right: 30px;
-}
+} */
 
 .navbar_menu li:hover {
   background-color: #263343;
@@ -68,7 +68,7 @@ body {
     flex-direction: row;
     align-items: center;
     /* padding: 3px 5px; */
-    height: 220px;
+    /* height: 220px; */
     justify-content: flex-start;
   }
 
@@ -83,7 +83,7 @@ body {
   .navbar_menu {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0;
     margin-left: 30px;
   }
 

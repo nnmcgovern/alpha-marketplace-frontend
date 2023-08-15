@@ -7,13 +7,11 @@
   margin-left: 240px;
 }
 
-/* 기존 스타일은 생략... */
-
 @media (max-width: 480px) {
   .all-cars-grid {
-    grid-template-columns: 1fr; /* 한 컬럼만 표시 */
-    width: 100%; /* 너비 100% */
-    margin-left: 0; /* margin 제거 */
-    padding: 10px; /* 패딩 조절 */
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
   }
 }

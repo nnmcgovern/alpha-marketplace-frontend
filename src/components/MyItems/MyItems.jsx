@@ -16,7 +16,7 @@ export default function MyItems({ items }) {
               alt={`${item.maker} ${item.model}`}
             />
             <div className="item-info">
-              <div>Make: {item.maker}</div>
+              <div>Make: {item.make}</div>
               <div>Model: {item.model}</div>
               <div>Body Type: {item.type}</div>
               <div>Year: {item.year}</div>

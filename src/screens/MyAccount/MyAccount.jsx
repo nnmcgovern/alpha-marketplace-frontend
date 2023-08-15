@@ -10,16 +10,12 @@ export default function MyAccount() {
   const [rerender, setRerender] = useState(false);
   const user = JSON.parse(localStorage.getItem("user")); // to fix error where user becomes undefined on account page reload
 
-  console.log("myacct user: ", user);
-
   useEffect(() => {
     fetchItems();
   }, [rerender]);
 
   async function fetchItems() {
     const items = await getCarByUserId(user.id);
-    console.log("user id: ", user.id);
-    console.log("items: ", items);
 
     if (items) {
       setMyItems(items);

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { deleteCar } from "../../services/cars";
+import EditCarModal from "../EditCarModal/EditCarModal";
 import "./MyItem.css";
 
 export default function MyItems({ car, setRerender }) {
-  const handleClickEdit = (e) => {};
+  const [showEditCarModal, setShowEditCarModal] = useState(false);
+
+  const handleClickEdit = (e) => {
+    setShowEditCarModal(true);
+  };
 
   const handleClickDelete = async (e) => {
     await deleteCar(car._id);
@@ -28,6 +33,13 @@ export default function MyItems({ car, setRerender }) {
         <button onClick={handleClickEdit}>Edit</button>
         <button onClick={handleClickDelete}>Delete Item</button>
       </div>
+      {showEditCarModal && (
+        <EditCarModal
+          car={car}
+          setShowEditCarModal={setShowEditCarModal}
+          setRerender={setRerender}
+        />
+      )}
     </div>
     //     ))}
     //   </div>

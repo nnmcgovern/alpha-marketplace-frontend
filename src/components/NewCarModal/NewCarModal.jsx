@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { createCar } from "../../services/cars";
-// import { getUserIdByUsername } from "../../services/users";
 
-export default function NewCarModal({ user, setRerender, setShowNewCarModal }) {
+export default function NewCarModal({ setRerender, setShowNewCarModal }) {
   const { id } = JSON.parse(localStorage.getItem("user"));
   const [car, setCar] = useState({
     make: "",
@@ -14,14 +13,6 @@ export default function NewCarModal({ user, setRerender, setShowNewCarModal }) {
     user: id,
     image: "",
   });
-
-  // useEffect(() => {
-  // async function test() {
-  //   const userID = await getUserIdByUsername(user.username);
-  //   console.log(`userID for ${user.username}: `, userID);
-  // }
-  // test();
-  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

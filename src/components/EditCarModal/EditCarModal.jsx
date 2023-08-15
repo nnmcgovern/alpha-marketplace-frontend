@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { updateCar } from "../../services/cars";
 
-export default function EditCarModal({ car }) {
-  const [car, setCar] = useState({
+export default function EditCarModal({
+  car,
+  setShowEditCarModal,
+  setRerender,
+}) {
+  const [carUpdate, setCar] = useState({
     make: car.make,
     model: car.model,
     type: car.type,
@@ -13,11 +17,25 @@ export default function EditCarModal({ car }) {
     image: car.image,
   });
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await updateCar(car._id, carUpdate);
+    setShowEditCarModal(false);
+    setRerender((prev) => !prev);
+  };
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleClickClose = (e) => {};
+    setCar((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleClickClose = (e) => {
+    setShowEditCarModal(false);
+  };
 
   return (
     <div>
@@ -27,7 +45,7 @@ export default function EditCarModal({ car }) {
           type="text"
           placeholder="Make"
           name="make"
-          value={car.make}
+          value={carUpdate.make}
           onChange={handleChange}
         />
 
@@ -35,7 +53,7 @@ export default function EditCarModal({ car }) {
           type="text"
           placeholder="Model"
           name="model"
-          value={car.model}
+          value={carUpdate.model}
           onChange={handleChange}
         />
 
@@ -43,7 +61,7 @@ export default function EditCarModal({ car }) {
           type="text"
           placeholder="Body Type"
           name="type"
-          value={car.type}
+          value={carUpdate.type}
           onChange={handleChange}
         />
 
@@ -52,7 +70,7 @@ export default function EditCarModal({ car }) {
           type="number"
           placeholder="Year"
           name="year"
-          value={car.year}
+          value={carUpdate.year}
           onChange={handleChange}
         />
 
@@ -60,7 +78,7 @@ export default function EditCarModal({ car }) {
           type="text"
           placeholder="Color"
           name="color"
-          value={car.color}
+          value={carUpdate.color}
           onChange={handleChange}
         />
 
@@ -69,7 +87,7 @@ export default function EditCarModal({ car }) {
           type="number"
           placeholder="Sale Price"
           name="price"
-          value={car.price}
+          value={carUpdate.price}
           onChange={handleChange}
         />
 
@@ -77,7 +95,7 @@ export default function EditCarModal({ car }) {
           type="text"
           placeholder="Image URL"
           name="image"
-          value={car.image}
+          value={carUpdate.image}
           onChange={handleChange}
         />
 

@@ -22,7 +22,7 @@ export default function CreateAccountModal({
 
     // ISSUE: if, else not working as intended currently
     if (form.password !== form.passwordConfirm) {
-      setStatus("Passwords do not match");
+      setStatus("PASSWORDS DO NOT MATCH");
     } else {
       setStatus("");
 
@@ -42,7 +42,6 @@ export default function CreateAccountModal({
           errorMsg: "Sign Up Details Invalid",
         });
       }
-      console.log("CreateAccountModal--afterPost: ", form); // FOR TESTING
     }
   };
 

@@ -25,11 +25,14 @@ export default function LoginModal({
     // login user
     try {
       const user = await login(form);
+      // console.log("user from login modal: ", user);
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
       setShowLoginModal(false);
       document.body.classList.remove("modal-open");
+      setStatus("");
     } catch (error) {
+      setStatus("INVALID USERNAME/PASSWORD");
       console.error(error);
       setForm({
         username: "",
@@ -89,7 +92,7 @@ export default function LoginModal({
             <button type="submit">Login</button>
           </div>
         </form>
-        <p>{status}</p>
+        <p className="login-modal-status">{status}</p>
         <div className="login-modal-create-acc">
           <p>Not registered?</p>
           <button onClick={handleClickCreateAccount}>Create Account</button>

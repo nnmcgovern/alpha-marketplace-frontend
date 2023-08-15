@@ -80,6 +80,13 @@ body.modal-open {
   color: #FFFFFF;
 }
 
+.login-modal-status {
+  position: fixed;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 820px) {
   .login-modal {
     width: 414px;

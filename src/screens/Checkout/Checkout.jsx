@@ -95,9 +95,13 @@ export default function Checkout() {
 
         <div className="total-price">
           <h3>Total: ${total}</h3>
-        </div>
+          </div>
+
+          {!cars || cars.length === 0 && (
+            <p>Your cart is empty. Please add items before checking out.</p>
+          )}
         
-        <button type="submit">Complete Checkout</button>
+        <button type="submit" disabled={!cars || cars.length === 0}>Complete Checkout</button>
       </form>
       </div>
     );

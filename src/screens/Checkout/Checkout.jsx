@@ -22,7 +22,7 @@ export default function Checkout() {
     // Calculate total
     const totalPrice = cars?.reduce((acc, car) => acc + car.price, 0) || 0;
     setTotal(totalPrice);
-  }, [rerender]);
+  }, [rerender, cars]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

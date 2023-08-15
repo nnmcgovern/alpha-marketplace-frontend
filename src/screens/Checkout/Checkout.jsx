@@ -65,21 +65,25 @@ export default function Checkout() {
             placeholder="Name"
             name="name"
             value={userData.name}
-            onChange={handleInputChange} required
+            onChange={handleInputChange}
+            required
+            className="form-input name-input"
           />
           <input
             type="text"
-            placeholder="Address fake"
+            placeholder="Fake Address"
             name="address"
             value={userData.address}
             onChange={handleInputChange} required
+            className="form-input address-input"
           />
           <input
             type="text"
-            placeholder="Credit Card fake"
+            placeholder="Fake Credit Card - do not put your real credit card number here"
             name="creditcard"
             value={userData.creditcard}
             onChange={handleInputChange} required
+            className="form-input creditcard-input"
           />
         </div>
 
@@ -98,7 +102,7 @@ export default function Checkout() {
             <p>Your cart is empty. Please add items before checking out.</p>
           )}
         
-          <button type="submit"
+          <button type="submit" className="checkout-btn"
             disabled={!cars || cars.length === 0}>
             Complete Checkout
           </button>

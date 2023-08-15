@@ -76,6 +76,7 @@ export default function CreateAccountModal({
             name="email"
             value={form.email}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -84,6 +85,7 @@ export default function CreateAccountModal({
             name="username"
             value={form.username}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -92,6 +94,7 @@ export default function CreateAccountModal({
             name="password"
             value={form.password}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -100,6 +103,7 @@ export default function CreateAccountModal({
             name="passwordConfirm"
             value={form.passwordConfirm}
             onChange={handleChange}
+            required
           />
 
           <button type="button" onClick={handleClickCancel}>

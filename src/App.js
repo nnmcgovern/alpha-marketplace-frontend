@@ -20,9 +20,10 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await verify();
-      // console.log("app.js user: ", user);
       user ? setUser(user) : setUser(null);
-      console.log("app.js user: ", user);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // console.log("app.js user: ", user);
     };
     fetchUser();
   }, []);

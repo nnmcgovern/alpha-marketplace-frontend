@@ -1,24 +1,37 @@
 import { useEffect, useState } from "react";
 import NewCarModal from "../../components/NewCarModal/NewCarModal";
 import MyItems from "../../components/MyItems/MyItems";
-import { getUserIdByUsername } from "../../services/users";
+// import { getUserIdByUsername } from "../../services/users";
+import { getCarByUserId } from "../../services/cars";
 
 export default function MyAccount() {
   const [showNewCarModal, setShowNewCarModal] = useState(false);
   const [myItems, setMyItems] = useState([]);
+  const [rerender, setRerender] = useState(false);
   const user = JSON.parse(localStorage.getItem("user")); // to fix error where user becomes undefined on account page reload
 
-  // console.log("myacct user: ", user);
+  console.log("myacct user: ", user);
 
   useEffect(() => {
-    fetchUserId();
+    // fetchUserId();
     // console.log("may acct useeffect user: ", user);
-  }, []);
+    fetchItems();
+  }, [rerender]);
 
-  async function fetchUserId() {
-    const userId = await getUserIdByUsername(user.username);
-    console.log("user id: ", userId.id);
+  async function fetchItems() {
+    const items = await getCarByUserId(user.id);
+    console.log("user id: ", user.id);
+    console.log("items: ", items);
+
+    if (items) {
+      setMyItems(items);
+    }
   }
+
+  // async function fetchUserId() {
+  //   const userId = await getUserIdByUsername(user.username);
+  //   console.log("user id: ", userId.id);
+  // }
 
   const handleClickNew = (e) => {
     setShowNewCarModal(true);
@@ -37,7 +50,11 @@ export default function MyAccount() {
       </div>
       <MyItems items={myItems} />
       {showNewCarModal && (
-        <NewCarModal user={user} setShowNewCarModal={setShowNewCarModal} /> // should appear when 'add new' button is clicked
+        <NewCarModal
+          user={user}
+          setRerender={setRerender}
+          setShowNewCarModal={setShowNewCarModal}
+        /> // should appear when 'add new' button is clicked
       )}
     </div>
   );

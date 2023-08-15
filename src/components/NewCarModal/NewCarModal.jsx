@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { createCar } from "../../services/cars";
 // import { getUserIdByUsername } from "../../services/users";
 
-export default function NewCarModal({ user, setShowNewCarModal }) {
+export default function NewCarModal({ user, setRerender, setShowNewCarModal }) {
+  const { id } = JSON.parse(localStorage.getItem("user"));
   const [car, setCar] = useState({
     make: "",
     model: "",
@@ -10,7 +11,7 @@ export default function NewCarModal({ user, setShowNewCarModal }) {
     year: 0,
     color: "",
     price: 0,
-    user: "",
+    user: id,
     image: "",
   });
 
@@ -26,6 +27,7 @@ export default function NewCarModal({ user, setShowNewCarModal }) {
     e.preventDefault();
     await createCar(car);
     setShowNewCarModal(false);
+    setRerender((prev) => !prev);
   };
 
   const handleChange = (e) => {

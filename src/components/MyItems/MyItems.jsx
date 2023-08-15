@@ -10,7 +10,11 @@ export default function MyItems({ items }) {
       <div className="items-modal-content">
         {items.map((item, index) => (
           <div key={index} className="item">
-            <img src={item.image} alt={`${item.maker} ${item.model}`} />
+            <img
+              src={item.image}
+              width="300px"
+              alt={`${item.maker} ${item.model}`}
+            />
             <div className="item-info">
               <div>Make: {item.maker}</div>
               <div>Model: {item.model}</div>

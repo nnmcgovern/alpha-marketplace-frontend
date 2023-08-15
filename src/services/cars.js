@@ -23,7 +23,7 @@ export const getCar = async (id) => {
 // GET CAR BY USER ID
 export const getCarByUserId = async (id) => {
   try {
-    const res = api.get(`/cars/user/${id}`);
+    const res = await api.get(`/cars/user/${id}`);
     return res.data;
   } catch (err) {
     console.log("Error at getCarByUserId(): ", err);

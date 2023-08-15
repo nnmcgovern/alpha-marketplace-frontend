@@ -40,70 +40,76 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
       <div className="new-car-modal">
         <h1>List Your Car For Sale</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Make"
-            name="make"
-            value={car.make}
-            onChange={handleChange}
-            required
-          />
+          <div className="new-car-form-inputs">
+            <input
+              type="text"
+              placeholder="Make"
+              name="make"
+              value={car.make}
+              onChange={handleChange}
+              required
+            />
 
-          <input
-            type="text"
-            placeholder="Model"
-            name="model"
-            value={car.model}
-            onChange={handleChange}
-            required
-          />
+            <input
+              type="text"
+              placeholder="Model"
+              name="model"
+              value={car.model}
+              onChange={handleChange}
+              required
+            />
 
-          <input
-            type="text"
-            placeholder="Body Type"
-            name="type"
-            value={car.type}
-            onChange={handleChange}
-            required
-          />
+            <input
+              type="text"
+              placeholder="Body Type"
+              name="type"
+              value={car.type}
+              onChange={handleChange}
+              required
+            />
 
-          <p>Year:</p>
-          <input
-            type="number"
-            placeholder="Year"
-            name="year"
-            value={car.year}
-            onChange={handleChange}
-            required
-          />
+            <div className="new-car-input-label">
+              <p>Year:</p>
+              <input
+                type="number"
+                placeholder="Year"
+                name="year"
+                value={car.year}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <input
-            type="text"
-            placeholder="Color"
-            name="color"
-            value={car.color}
-            onChange={handleChange}
-            required
-          />
+            <input
+              type="text"
+              placeholder="Color"
+              name="color"
+              value={car.color}
+              onChange={handleChange}
+              required
+            />
 
-          <p>Price:</p>
-          <input
-            type="number"
-            placeholder="Sale Price"
-            name="price"
-            value={car.price}
-            onChange={handleChange}
-            required
-          />
+            <div className="new-car-input-label">
+              <p>Price:</p>
+              <input
+                type="number"
+                placeholder="Sale Price"
+                name="price"
+                value={car.price}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <input
-            type="text"
-            placeholder="Image URL"
-            name="image"
-            value={car.image}
-            onChange={handleChange}
-            required
-          />
+            <input
+              type="text"
+              placeholder="Image URL"
+              name="image"
+              value={car.image}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <div className="new-car-form-buttons">
             <button type="button" onClick={handleClickClose}>

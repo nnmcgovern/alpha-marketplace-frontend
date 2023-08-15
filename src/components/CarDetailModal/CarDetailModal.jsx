@@ -12,7 +12,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     };
     getSeller();
 
-    document.body.classList.add("modal-open"); // add css to disable body scrolling
+    // document.body.classList.add("modal-open"); // add css to disable body scrolling
   }, []);
 
   const handleClickCart = (e) => {
@@ -42,12 +42,12 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     }
 
     setShowCarDetailModal(false);
-    document.body.classList.remove("modal-open");
+    // document.body.classList.remove("modal-open");
   };
 
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
-    document.body.classList.remove("modal-open");
+    // document.body.classList.remove("modal-open");
   };
 
   return (

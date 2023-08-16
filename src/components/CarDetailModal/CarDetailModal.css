@@ -46,9 +46,9 @@ body.modal-open {
   column-gap: 20px;
 }
 
-.car-item-column p {
-  /* margin: 0; */
-}
+/* .car-item-column p {
+  margin: 0;
+} */
 
 .car-detail-label {
   color: #fcae1e;

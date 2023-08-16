@@ -1,0 +1,52 @@
+.my-item-container {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c c";
+  margin: 30px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px #263343;
+  border-radius: 4px;
+}
+
+.my-item-buttons {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.my-item-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+  margin-right: 110px;
+  font-size: 20px;
+}
+
+.my-item-label {
+  color: #fcae1e;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .my-item-info {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 15px;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .my-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+  }
+
+  .my-item-info {
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+}

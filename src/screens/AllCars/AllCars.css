@@ -1,0 +1,18 @@
+.all-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: calc(100% - 240px);
+  margin-left: 240px;
+}
+
+@media (max-width: 480px) {
+  .all-cars-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    /* margin-top: 5px; */
+  }
+}

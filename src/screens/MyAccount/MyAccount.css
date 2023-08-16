@@ -1,0 +1,39 @@
+.my-acct {
+  color: #263343;
+}
+
+.my-acct-welcome {
+  color: #fcae1e;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.my-acct-user {
+  color: #263343;
+}
+
+.my-acct-listings-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: -40px;
+}
+
+.my-acct button {
+  background-color: #fcae1e;
+  color: #263343;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  width: 130px;
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.my-acct button:hover {
+  background-color: #263343;
+  color: #FFFFFF;
+}

@@ -10,10 +10,11 @@ export default function Cart() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCars(JSON.parse(localStorage.getItem("cart")));
-    const totalPrice = cars?.reduce((acc, car) => acc + car.price, 0) || 0;
+    let cartItems = JSON.parse(localStorage.getItem("cart"))
+    setCars(cartItems);
+    const totalPrice = cartItems?.reduce((acc, car) => acc + car.price, 0) || 0;
     setTotal(totalPrice);
-  }, [rerender, cars]);
+  }, [rerender]);
 
   return (
     <div className="cart-container">

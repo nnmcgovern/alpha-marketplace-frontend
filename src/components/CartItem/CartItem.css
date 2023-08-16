@@ -30,21 +30,12 @@
   color: #FFFFFF;
 }
 
-.cart-items-container img {
-  /* border: solid blue; */
-}
-
 .cart-item-info {
   grid-area: info;
   display: flex;
   font-size: 20px;
   gap: 50px;
   margin-left: -60px;
-  /* border: solid red; */
-}
-
-.cart-item-info p {
-  /* border: solid green; */
 }
 
 .cart-item-label {

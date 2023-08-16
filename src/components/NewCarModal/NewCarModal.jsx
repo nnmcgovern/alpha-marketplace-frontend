@@ -70,8 +70,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
               required
             />
 
-            <div className="new-car-input-label">
-              <p>Year:</p>
+        
               <input
                 type="number"
                 placeholder="Year"
@@ -80,7 +79,7 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
                 onChange={handleChange}
                 required
               />
-            </div>
+          
 
             <input
               type="text"
@@ -91,8 +90,6 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
               required
             />
 
-            <div className="new-car-input-label">
-              <p>Price:</p>
               <input
                 type="number"
                 placeholder="Sale Price"
@@ -101,7 +98,6 @@ export default function NewCarModal({ setRerender, setShowNewCarModal }) {
                 onChange={handleChange}
                 required
               />
-            </div>
 
             <input
               type="text"

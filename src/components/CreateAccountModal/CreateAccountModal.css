@@ -16,8 +16,12 @@ body.modal-open {
 .create-account-modal {
   z-index: 2;
   position: fixed;
-  top: 25%;
-  left: 25%;
+  /* top: 25%;
+  left: 25%; */
+  top: 50%;
+  left: 50%;
+  margin-top: -205px;
+  margin-left: -350px;
   width: 700px;
   height: 410px;
   padding: 25px;
@@ -91,11 +95,15 @@ body.modal-open {
   .create-account-modal {
     top: 25%;
     left: 12%;
+    margin-left: 0;
+    margin-top: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .create-account-modal {
+    margin-left: 0;
+    margin-top: 0;
     width: 100%;
     height: 550px;
     top: 10%;

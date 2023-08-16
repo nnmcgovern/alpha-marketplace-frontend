@@ -18,7 +18,7 @@ export default function Checkout() {
 
   useEffect(() => {
     setCars(JSON.parse(localStorage.getItem("cart")));
-    
+
     // Calculate total
     const totalPrice = cars?.reduce((acc, car) => acc + car.price, 0) || 0;
     setTotal(totalPrice);
@@ -27,36 +27,37 @@ export default function Checkout() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevState) => ({
-      ...prevState, [name]: value
+      ...prevState,
+      [name]: value,
     }));
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       cars.forEach(async (car) => {
         // Delete car from database
         await deleteCar(car._id);
       });
-  
+
       alert("Thank you for your purchase!");
-      
+
       // Clear cart
       localStorage.setItem("cart", JSON.stringify([]));
       setRerender(!rerender);
-      
+
       // Redirect to homepage or a success page
       navigate("/");
     } catch (error) {
       console.log("Error deleting the car: ", error);
       alert("Something went wrong. Please try again.");
     }
-  }; 
+  };
 
-    return (
-      <div>
-        <h1>Checkout</h1>
+  return (
+    <div className="checkout-container">
+      <h1>Checkout</h1>
 
       <form onSubmit={handleSubmit}>
         <div className="user-details">
@@ -74,7 +75,8 @@ export default function Checkout() {
             placeholder="Fake Address"
             name="address"
             value={userData.address}
-            onChange={handleInputChange} required
+            onChange={handleInputChange}
+            required
             className="form-input address-input"
           />
           <input
@@ -82,10 +84,11 @@ export default function Checkout() {
             placeholder="Fake Credit Card - do not put your real credit card number here"
             name="creditcard"
             value={userData.creditcard}
-            onChange={handleInputChange} required
-              className="form-input creditcard-input"
-              pattern="\d*"
-              title="Please enter numbers only"
+            onChange={handleInputChange}
+            required
+            className="form-input creditcard-input"
+            pattern="\d*"
+            title="Please enter numbers only"
           />
         </div>
 
@@ -98,21 +101,23 @@ export default function Checkout() {
 
         <div className="total-price">
           <h3>Total: ${total}</h3>
-          </div>
+        </div>
 
-          {!cars || cars.length === 0 && (
-            <p className="empty-cart">Your cart is empty. Please add items before checking out.</p>
-          )}
-        
-          <button type="submit" className="checkout-btn"
-            disabled={!cars || cars.length === 0}>
-            Complete Checkout
-          </button>
+        {!cars ||
+          (cars.length === 0 && (
+            <p className="empty-cart">
+              Your cart is empty. Please add items before checking out.
+            </p>
+          ))}
+
+        <button
+          type="submit"
+          className="checkout-btn"
+          disabled={!cars || cars.length === 0}
+        >
+          Complete Checkout
+        </button>
       </form>
-      </div>
-    );
+    </div>
+  );
 }
-  
-            
-          
-  

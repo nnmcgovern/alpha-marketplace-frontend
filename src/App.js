@@ -10,12 +10,14 @@ import LoginModal from "./components/LoginModal/LoginModal";
 import CreateAccountModal from "./components/CreateAccountModal/CreateAccountModal";
 import "./App.css";
 import { verify } from "./services/users";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const location = useLocation();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showCreateAccountModal, setShowCreateAccountModal] = useState(false);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,6 +32,7 @@ function App() {
     // If the user is not logged in and they're trying to access a protected route, redirect them to the login page
     if (!user && location.pathname === "/checkout") {
       setShowLoginModal(true);
+      navigate("/cart");
       return null;
     }
     return children;

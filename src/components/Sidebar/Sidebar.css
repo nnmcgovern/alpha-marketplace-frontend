@@ -7,6 +7,7 @@
   position: fixed;
   left: 0;
   top: 83.5px;
+  overflow: scroll;
   /* height: calc(100vh - 10px); */
 }
 

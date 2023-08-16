@@ -16,8 +16,12 @@ body.modal-open {
 .new-car-modal {
   z-index: 2;
   position: fixed;
-  top: 25%;
-  left: 25%;
+  /* top: 25%;
+  left: 25%; */
+  top: 50%;
+  left: 50%;
+  margin-top: -225px;
+  margin-left: -350px;
   width: 700px;
   height: 450px;
   padding: 30px;

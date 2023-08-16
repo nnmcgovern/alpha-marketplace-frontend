@@ -95,11 +95,15 @@ body.modal-open {
   .create-account-modal {
     top: 25%;
     left: 12%;
+    margin-left: 0;
+    margin-top: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .create-account-modal {
+    margin-left: 0;
+    margin-top: 0;
     width: 100%;
     height: 550px;
     top: 10%;

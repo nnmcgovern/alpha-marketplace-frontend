@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { login } from "../../services/users.js";
+import { useNavigate } from "react-router-dom";
 import "./LoginModal.css";
 
 export default function LoginModal({
   setShowLoginModal,
   setShowCreateAccountModal,
   setUser,
+  redirectOnCancel,
 }) {
   const [form, setForm] = useState({
     username: "",
@@ -14,6 +16,7 @@ export default function LoginModal({
     errorMsg: "",
   });
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.classList.add("modal-open"); // add css to disable body scrolling
@@ -52,6 +55,9 @@ export default function LoginModal({
   };
 
   const handleClickCancel = (e) => {
+    if (redirectOnCancel) {
+      navigate("/cart");
+    }
     setShowLoginModal(false);
     document.body.classList.remove("modal-open");
   };

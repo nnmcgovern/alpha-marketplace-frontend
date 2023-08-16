@@ -16,7 +16,7 @@ export default function Cart() {
   }, [rerender, cars]);
 
   return (
-    <div>
+    <div className="cart-container">
       <h1>Cart</h1>
       <div className="cart-item-list-container">
         {cars &&

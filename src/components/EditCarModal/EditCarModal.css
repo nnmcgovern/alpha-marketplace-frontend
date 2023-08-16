@@ -92,6 +92,8 @@ body.modal-open {
   .edit-car-modal {
     top: 25%;
     left: 7%;
+    margin-left: 0;
+    margin-top: 0;
   }
 }
 
@@ -101,6 +103,8 @@ body.modal-open {
     height: 600px;
     top: 15%;
     left: 0;
+    margin-left: 0;
+    margin-top: 0;
   }
 
   .edit-car-form-inputs {

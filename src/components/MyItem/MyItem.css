@@ -32,7 +32,6 @@
 
 @media screen and (max-width: 950px) {
   .my-item-info {
-    /* grid-template-columns: repeat(2, 1fr); */
     margin-left: 15px;
     gap: 20px;
   }

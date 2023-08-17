@@ -16,8 +16,6 @@ body.modal-open {
 .login-modal {
   z-index: 2;
   position: fixed;
-  /* top: 25%;
-  left: 25%; */
   top: 50%;
   left: 50%;
   margin-top: -205px;

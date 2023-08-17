@@ -2,7 +2,6 @@ import "./Checkout.css";
 import { useState, useEffect } from "react";
 import CartItem from "../../components/CartItem/CartItem";
 import { useNavigate } from "react-router-dom";
-// import api from "../../services/apiConfig";
 import { deleteCar } from "../../services/cars";
 
 export default function Checkout() {

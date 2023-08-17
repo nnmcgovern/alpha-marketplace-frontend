@@ -38,10 +38,6 @@ body {
   list-style: none;
 }
 
-/* .navbar_menu li:not(:last-child) {
-  margin-right: 30px;
-} */
-
 .navbar_menu li:hover {
   background-color: #263343;
   border-radius: 4px;
@@ -89,7 +85,6 @@ body {
 
   .navbar_menu li {
     margin: -10px 0;
-    /* padding: 5px 10px; */
     text-align: center;
   }
 

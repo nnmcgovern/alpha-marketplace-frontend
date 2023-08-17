@@ -29,10 +29,6 @@ export default function MyAccount() {
 
   return (
     <div className="my-acct">
-      {/* <div className="my-acct-sidebar">
-        <button>My Listings</button>
-        <button>My Favorites</button>
-      </div> */}
       <h1 className="my-acct-welcome">
         Welcome, <span className="my-acct-user">{user.username}</span>!
       </h1>

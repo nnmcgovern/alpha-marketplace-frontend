@@ -12,7 +12,7 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     };
     getSeller();
 
-    // document.body.classList.add("modal-open"); // add css to disable body scrolling
+    document.body.classList.add("modal-open"); // add css to disable body scrolling
   }, []);
 
   const handleClickCart = (e) => {
@@ -42,12 +42,12 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
     }
 
     setShowCarDetailModal(false);
-    // document.body.classList.remove("modal-open");
+    document.body.classList.remove("modal-open");
   };
 
   const handleClickClose = (e) => {
     setShowCarDetailModal(false);
-    // document.body.classList.remove("modal-open");
+    document.body.classList.remove("modal-open");
   };
 
   return (
@@ -61,26 +61,43 @@ export default function CarDetailModal({ car, setShowCarDetailModal }) {
         />
         <div className="car-detail-info-container">
           <div className="car-item-column">
-          <p><span className="car-detail-label">Make: </span>{car.make}</p>
-          <p><span className="car-detail-label">Model:</span> {car.model}</p>
-          <p><span className="car-detail-label">Type:</span> {car.type}</p>
-          <p><span className="car-detail-label">Year:</span> {car.year}</p>
+            <p>
+              <span className="car-detail-label">Make: </span>
+              {car.make}
+            </p>
+            <p>
+              <span className="car-detail-label">Model:</span> {car.model}
+            </p>
+            <p>
+              <span className="car-detail-label">Type:</span> {car.type}
+            </p>
+            <p>
+              <span className="car-detail-label">Year:</span> {car.year}
+            </p>
           </div>
           <div className="car-item-column">
-          <p><span className="car-detail-label">Color: </span>{car.color}</p>
-          <p><span className="car-detail-label">Price:</span>${car.price}</p>
-          <p><span className="car-detail-label">Sold by: </span>{seller}</p>
+            <p>
+              <span className="car-detail-label">Color: </span>
+              {car.color}
+            </p>
+            <p>
+              <span className="car-detail-label">Price:</span>${car.price}
+            </p>
+            <p>
+              <span className="car-detail-label">Sold by: </span>
+              {seller}
+            </p>
           </div>
-          </div>
+        </div>
 
         <div className="car-detail-modal-buttons">
-        <button className="car-detail-close" onClick={handleClickClose}>
-          Cancel
-        </button>
-        <button className="car-detail-cart" onClick={handleClickCart}>
-          Add to Cart
+          <button className="car-detail-close" onClick={handleClickClose}>
+            Cancel
           </button>
-          </div>
+          <button className="car-detail-cart" onClick={handleClickCart}>
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

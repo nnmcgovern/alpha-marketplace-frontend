@@ -7,7 +7,10 @@ const getToken = () => {
 };
 
 const api = axios.create({
-  baseURL: "https://alpha-marketplace-backend-18469668e160.herokuapp.com/api",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://alpha-marketplace-backend-18469668e160.herokuapp.com/api"
+      : "http://localhost:3000/api",
 });
 
 api.interceptors.request.use(

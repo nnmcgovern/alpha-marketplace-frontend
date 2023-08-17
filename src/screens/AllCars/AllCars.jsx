@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import CarPreview from '../../components/CarPreview/CarPreview';
-import { getCars } from '../../services/cars';
-import './AllCars.css';
-import '../../components/Sidebar/Sidebar.css';
+import { useState, useEffect } from "react";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import CarPreview from "../../components/CarPreview/CarPreview";
+import { getCars } from "../../services/cars";
+import "./AllCars.css";
+import "../../components/Sidebar/Sidebar.css";
 
 export default function AllCars() {
   const [cars, setCars] = useState([]);
   const [checked, setChecked] = useState({});
-  const [selectedModel, setSelectedModel] = useState('');
-  const [selectedMake, setSelectedMake] = useState('');
+  const [selectedModel, setSelectedModel] = useState("");
+  const [selectedMake, setSelectedMake] = useState("");
 
   useEffect(() => {
     fetchCars();
@@ -34,7 +34,7 @@ export default function AllCars() {
         selectedMake={selectedMake}
         setSelectedMake={setSelectedMake}
       />
-      <div className='all-cars-grid'>
+      <div className="all-cars-grid">
         {!Object.values(checked).includes(true) &&
           cars
             .filter((car) => !selectedModel || car.model === selectedModel)
@@ -54,6 +54,3 @@ export default function AllCars() {
     </div>
   );
 }
-//if (checked.all === true) {
-//{cars.map(car => (CarPreview... />))}}
-//else {cars.filter(car.make === )}

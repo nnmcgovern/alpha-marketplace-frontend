@@ -86,7 +86,6 @@ h1 {
   }
 
   .user-details {
-    /* margin-left: 10px; */
     margin-right: 10px;
   }
 
@@ -98,6 +97,5 @@ h1 {
   .form-input {
     width: 415px;
     margin-left: 0;
-    /* margin: 10px 0; */
   }
 }

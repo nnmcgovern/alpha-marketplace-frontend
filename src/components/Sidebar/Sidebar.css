@@ -8,7 +8,6 @@
   left: 0;
   top: 83.5px;
   overflow: scroll;
-  /* height: calc(100vh - 10px); */
 }
 
 .sidebar div {
@@ -34,8 +33,6 @@
 
 @media (max-width: 480px) {
   .sidebar {
-    /* position: fixed; */
-    /* display: none; */
     bottom: 0;
     left: 0;
     width: 100%;

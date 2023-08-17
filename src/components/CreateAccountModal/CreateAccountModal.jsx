@@ -29,6 +29,7 @@ export default function CreateAccountModal({
       try {
         const user = await signUp(form);
         setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
         setShowCreateAccountModal(false);
         document.body.classList.remove("modal-open");
       } catch (err) {

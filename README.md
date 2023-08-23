@@ -10,7 +10,7 @@ Welcome to **Alpha Marketplace** - your go-to platform for buying and selling ca
 
 - **🏠 Beautiful Homepage**: Navigate with ease with a user-friendly interface.
 - **🔎 Search & Filter**: Find your dream car using various filters.
-- **🛒 Cart & Favorites**: Add cars to your cart or favorites with just a click.
+- **🛒 Cart**: Add cars to your cart with just a click.
 - **💼 Manage Listings**: Control your listings, whether you want to sell, edit, or delete.
 - **💳 Secure Checkout**: Process your transactions safely and efficiently.
 - **👤 User Account Management**: Manage your account with a personal touch.
